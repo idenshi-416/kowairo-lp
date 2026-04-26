@@ -1,29 +1,5 @@
 import { TrendingUp, Users, Star } from "lucide-react";
 
-const roiItems = [
-  {
-    value: "80",
-    unit: "%",
-    label: "記録時間削減",
-    detail: "1日1時間 → 約12分",
-    color: "#3FA39A",
-  },
-  {
-    value: "48,000",
-    unit: "円",
-    label: "月間コスト効果/1名",
-    detail: "看護師時給3,000円換算",
-    color: "#E5876B",
-  },
-  {
-    value: "70",
-    unit: "%",
-    label: "採用費用削減",
-    detail: "1人100万円 → 約30万円",
-    color: "#D4A03B",
-  },
-];
-
 const benefits = [
   {
     icon: TrendingUp,
@@ -47,69 +23,106 @@ const benefits = [
 
 export default function ROISection() {
   return (
-    <section id="roi" className="section-padding bg-navy">
+    <section id="roi" className="section-padding bg-cream">
       <div className="container-wide">
-        <div className="text-center mb-16">
-          <span className="inline-block text-teal-light font-bold text-sm tracking-widest uppercase mb-3">
-            ROI & BENEFITS
-          </span>
-          <h2 className="text-3xl md:text-4xl font-bold text-white leading-tight">
-            数字で見る
-            <span className="text-teal-light"> 経営メリット</span>
+        <div className="max-w-2xl mb-16">
+          <span className="section-label">ROI & BENEFITS</span>
+          <h2 className="section-title">
+            数字で見る、
+            <br />
+            <span className="text-teal">投資対効果</span>
           </h2>
-          <p className="text-white/60 text-lg mt-4 leading-relaxed">
-            コスト削減だけでなく、売上向上・採用強化まで。3方向から経営を支援します。
+          <p className="section-subtitle">
+            コスト削減だけでなく、売上向上・採用強化まで。
+            3方向から経営を支援します。
           </p>
         </div>
 
-        {/* ROI big numbers */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
-          {roiItems.map((item) => (
-            <div
-              key={item.label}
-              className="bg-white/5 border border-white/10 rounded-2xl p-8 text-center hover:bg-white/10 transition-colors"
-            >
-              <div className="flex items-end justify-center gap-1 mb-2">
-                <span
-                  className="text-6xl md:text-7xl font-black leading-none"
-                  style={{ color: item.color }}
-                >
-                  {item.value}
-                </span>
-                <span className="text-2xl font-bold text-white/70 mb-2">{item.unit}</span>
+        {/* Main ROI — asymmetric layout */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-10">
+          {/* Left: Primary stat */}
+          <div className="bg-navy rounded-2xl p-10 flex flex-col justify-between min-h-[260px]">
+            <p className="text-white/50 text-sm font-medium">記録時間の削減率</p>
+            <div>
+              <div className="flex items-end gap-3 mb-3">
+                <span className="text-8xl font-black text-teal leading-none">80</span>
+                <span className="text-4xl font-black text-white/60 mb-3">%</span>
               </div>
-              <p className="text-white font-bold text-lg mb-1">{item.label}</p>
-              <p className="text-white/50 text-sm">{item.detail}</p>
+              <p className="text-white/70 text-sm">
+                1日1時間かかっていた記録が
+                <strong className="text-white"> 約12分</strong>に。
+                看護師時給3,000円換算で、
+                <strong className="text-white">月間約48,000円/1名</strong>のコスト効果。
+              </p>
             </div>
-          ))}
+          </div>
+
+          {/* Right: Two smaller stats */}
+          <div className="grid grid-rows-2 gap-6">
+            <div className="bg-white rounded-2xl border border-gray-100 shadow-sm px-8 py-6 flex items-center gap-6">
+              <div>
+                <div className="flex items-end gap-1">
+                  <span className="text-5xl font-black text-coral leading-none">70</span>
+                  <span className="text-2xl font-black text-coral/60 mb-1">%</span>
+                </div>
+                <p className="text-body text-xs mt-1">採用費用削減</p>
+              </div>
+              <div className="flex-1 pl-6 border-l border-gray-100">
+                <p className="text-navy font-bold text-sm mb-1">採用コストが大幅に下がる</p>
+                <p className="text-body text-xs leading-relaxed">
+                  1人100万円 → 約30万円。
+                  「記録が楽」という口コミが応募増につながります。
+                </p>
+              </div>
+            </div>
+
+            <div className="bg-white rounded-2xl border border-gray-100 shadow-sm px-8 py-6 flex items-center gap-6">
+              <div>
+                <div className="flex items-end gap-1">
+                  <span className="text-5xl font-black text-mustard leading-none">↑</span>
+                </div>
+                <p className="text-body text-xs mt-1">紹介獲得数</p>
+              </div>
+              <div className="flex-1 pl-6 border-l border-gray-100">
+                <p className="text-navy font-bold text-sm mb-1">報告書が営業ツールになる</p>
+                <p className="text-body text-xs leading-relaxed">
+                  質の高い報告書がケアマネからの信頼を高め、
+                  新規紹介の増加に直結します。
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
 
-        {/* Benefit cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {/* Benefits — horizontal list */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {benefits.map((b) => {
             const Icon = b.icon;
             return (
-              <div key={b.title} className="bg-white/5 border border-white/10 rounded-2xl p-8">
-                {/* Accent line */}
-                <div className="h-1 rounded-full mb-6" style={{ backgroundColor: b.color }} />
+              <div
+                key={b.title}
+                className="bg-white rounded-2xl border border-gray-100 shadow-sm p-6 flex gap-4"
+              >
                 <div
-                  className="w-12 h-12 rounded-xl flex items-center justify-center mb-4"
-                  style={{ backgroundColor: `${b.color}22` }}
+                  className="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5"
+                  style={{ backgroundColor: `${b.color}15` }}
                 >
-                  <Icon size={22} style={{ color: b.color }} />
+                  <Icon size={18} style={{ color: b.color }} />
                 </div>
-                <h3 className="text-white font-bold text-lg mb-4">{b.title}</h3>
-                <ul className="space-y-2">
-                  {b.items.map((item) => (
-                    <li key={item} className="flex items-center gap-2 text-white/70 text-sm">
-                      <span
-                        className="w-1.5 h-1.5 rounded-full flex-shrink-0"
-                        style={{ backgroundColor: b.color }}
-                      />
-                      {item}
-                    </li>
-                  ))}
-                </ul>
+                <div>
+                  <h3 className="text-navy font-bold text-sm mb-2">{b.title}</h3>
+                  <ul className="space-y-1">
+                    {b.items.map((item) => (
+                      <li key={item} className="flex items-center gap-1.5 text-body text-xs">
+                        <span
+                          className="w-1 h-1 rounded-full flex-shrink-0"
+                          style={{ backgroundColor: b.color }}
+                        />
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </div>
             );
           })}
