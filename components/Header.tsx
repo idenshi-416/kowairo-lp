@@ -1,0 +1,69 @@
+"use client";
+import { useState } from "react";
+import { Menu, X } from "lucide-react";
+import { KowairoLogo } from "./KowairoLogo";
+
+const navLinks = [
+  { label: "特徴", href: "#features" },
+  { label: "使い方", href: "#how-it-works" },
+  { label: "導入効果", href: "#roi" },
+  { label: "料金", href: "#pricing" },
+  { label: "よくある質問", href: "#faq" },
+];
+
+export default function Header() {
+  const [isOpen, setIsOpen] = useState(false);
+
+  return (
+    <header className="fixed top-0 left-0 right-0 z-50 bg-cream/90 backdrop-blur-sm border-b border-gray-100">
+      <div className="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
+        <KowairoLogo />
+        <nav className="hidden md:flex items-center gap-8">
+          {navLinks.map((link) => (
+            <a
+              key={link.href}
+              href={link.href}
+              className="text-body text-sm font-medium hover:text-teal transition-colors"
+            >
+              {link.label}
+            </a>
+          ))}
+        </nav>
+        <a
+          href="#trial"
+          className="hidden md:inline-flex items-center bg-teal text-white font-bold px-5 py-2.5 rounded-lg text-sm hover:bg-teal-dark transition-colors"
+        >
+          無料トライアル
+        </a>
+        <button
+          className="md:hidden p-2 text-navy"
+          onClick={() => setIsOpen(!isOpen)}
+          aria-label="メニュー"
+        >
+          {isOpen ? <X size={24} /> : <Menu size={24} />}
+        </button>
+      </div>
+      {isOpen && (
+        <div className="md:hidden bg-white border-t border-gray-100 px-4 py-4 space-y-4">
+          {navLinks.map((link) => (
+            <a
+              key={link.href}
+              href={link.href}
+              className="block text-body font-medium py-2 hover:text-teal"
+              onClick={() => setIsOpen(false)}
+            >
+              {link.label}
+            </a>
+          ))}
+          <a
+            href="#trial"
+            className="block bg-teal text-white font-bold px-5 py-3 rounded-lg text-center hover:bg-teal-dark transition-colors mt-2"
+            onClick={() => setIsOpen(false)}
+          >
+            無料トライアル申込
+          </a>
+        </div>
+      )}
+    </header>
+  );
+}
