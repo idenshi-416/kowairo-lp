@@ -6,9 +6,8 @@ export default function HeroSection() {
       {/* Left panel */}
       <div className="relative z-10 flex flex-col justify-center w-full lg:w-[55%] px-8 md:px-16 lg:px-20 pt-24 pb-16 bg-cream">
         {/* Tag */}
-        <div className="inline-flex items-center gap-2 bg-teal/10 text-teal font-bold text-sm px-4 py-2 rounded-full w-fit mb-8">
-          <Mic size={14} />
-          <span>訪問看護専用 AI音声アシスタント</span>
+        <div className="inline-flex items-center bg-teal/10 text-teal font-bold text-sm px-4 py-2 rounded-full w-fit mb-8">
+          訪問看護専用 AI音声アシスタント
         </div>
 
         {/* Main headline */}

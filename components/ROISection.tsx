@@ -89,31 +89,25 @@ export default function ROISection() {
           </div>
         </div>
 
-        {/* Benefits — horizontal list */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          {benefits.map((b) => {
-            return (
-              <div
-                key={b.title}
-                className="bg-white rounded-2xl border border-gray-100 shadow-sm p-6 flex gap-4"
+        {/* Benefits — divider list */}
+        <div className="grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-gray-200 border-t border-gray-200 pt-10">
+          {benefits.map((b) => (
+            <div key={b.title} className="md:px-8 py-6 md:py-0 first:md:pl-0 last:md:pr-0">
+              <h3
+                className="font-bold text-navy text-sm mb-3 pl-3"
+                style={{ borderLeft: `3px solid ${b.color}` }}
               >
-                <div>
-                  <h3 className="text-navy font-bold text-sm mb-2">{b.title}</h3>
-                  <ul className="space-y-1">
-                    {b.items.map((item) => (
-                      <li key={item} className="flex items-center gap-1.5 text-body text-xs">
-                        <span
-                          className="w-1 h-1 rounded-full flex-shrink-0"
-                          style={{ backgroundColor: b.color }}
-                        />
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-            );
-          })}
+                {b.title}
+              </h3>
+              <ul className="space-y-1.5 pl-3">
+                {b.items.map((item) => (
+                  <li key={item} className="text-body text-xs leading-relaxed">
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
         </div>
       </div>
     </section>
