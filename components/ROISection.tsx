@@ -1,3 +1,21 @@
+const benefits = [
+  {
+    title: "生産性向上",
+    items: ["記録時間80%削減", "利益率改善", "残業・持ち帰りゼロへ"],
+    color: "#3FA39A",
+  },
+  {
+    title: "ケアマネ連携強化",
+    items: ["質の高い報告書が営業ツールに", "紹介獲得 → 売上UP", "地域内での信頼向上"],
+    color: "#E5876B",
+  },
+  {
+    title: "採用魅力度UP",
+    items: ["応募数向上・離職率低下", "採用コスト圧縮", "「記録が楽」が口コミに"],
+    color: "#D4A03B",
+  },
+];
+
 export default function ROISection() {
   return (
     <section id="roi" className="section-padding bg-cream">
@@ -16,7 +34,7 @@ export default function ROISection() {
         </div>
 
         {/* Main ROI — asymmetric layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-10">
           {/* Left: Primary stat */}
           <div className="bg-navy rounded-2xl p-10 flex flex-col justify-between min-h-[260px]">
             <p className="text-white/50 text-sm font-medium">記録時間の削減率</p>
@@ -71,6 +89,32 @@ export default function ROISection() {
           </div>
         </div>
 
+        {/* Benefits — horizontal list */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          {benefits.map((b) => {
+            return (
+              <div
+                key={b.title}
+                className="bg-white rounded-2xl border border-gray-100 shadow-sm p-6 flex gap-4"
+              >
+                <div>
+                  <h3 className="text-navy font-bold text-sm mb-2">{b.title}</h3>
+                  <ul className="space-y-1">
+                    {b.items.map((item) => (
+                      <li key={item} className="flex items-center gap-1.5 text-body text-xs">
+                        <span
+                          className="w-1 h-1 rounded-full flex-shrink-0"
+                          style={{ backgroundColor: b.color }}
+                        />
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            );
+          })}
+        </div>
       </div>
     </section>
   );
