@@ -9,6 +9,7 @@ import PricingSection from "@/components/PricingSection";
 import FlowSection from "@/components/FlowSection";
 import FAQSection from "@/components/FAQSection";
 import CTASection from "@/components/CTASection";
+import FounderSection from "@/components/FounderSection";
 import Footer from "@/components/Footer";
 
 export default function Home() {
@@ -22,6 +23,7 @@ export default function Home() {
         <HowItWorksSection />
         <ROISection />
         <TestimonialsSection />
+        <FounderSection />
         <PricingSection />
         <FlowSection />
         <FAQSection />
