@@ -7,7 +7,7 @@ export default function HeroSection() {
       <div className="relative z-10 flex flex-col justify-center w-full lg:w-[55%] px-8 md:px-16 lg:px-20 pt-24 pb-16 bg-cream">
         {/* Tag */}
         <div className="inline-flex items-center bg-teal/10 text-teal font-bold text-sm px-4 py-2 rounded-full w-fit mb-8">
-          訪問看護専用 AI音声アシスタント
+          医師開発 · 訪問看護専用 AI音声アシスタント
         </div>
 
         {/* Main headline */}
@@ -42,8 +42,8 @@ export default function HeroSection() {
           </div>
           <div className="w-px bg-gray-200" />
           <div>
-            <p className="text-5xl font-black text-coral leading-none">5<span className="text-xl">社以上</span></p>
-            <p className="text-body text-sm mt-1">導入実績</p>
+            <p className="text-5xl font-black text-coral leading-none">¥<span>48,000</span></p>
+            <p className="text-body text-sm mt-1">節約効果/月・1名</p>
           </div>
           <div className="w-px bg-gray-200" />
           <div>
@@ -51,6 +51,9 @@ export default function HeroSection() {
             <p className="text-body text-sm mt-1">無料トライアル</p>
           </div>
         </div>
+        <p className="text-xs text-body/60 mt-5">
+          代表取締役医師 宗 大貴 監修 — 訪問看護の現場から生まれたツール
+        </p>
       </div>
 
       {/* Right panel - dark navy */}

@@ -29,7 +29,7 @@ export default function HowItWorksSection() {
           <span className="section-label">HOW IT WORKS</span>
           <h2 className="section-title">
             使い方は
-            <span className="text-teal"> 3ステップ</span>
+            <span className="text-teal"> 4ステップ</span>
             で完了
           </h2>
           <p className="section-subtitle">

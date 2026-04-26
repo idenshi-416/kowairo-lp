@@ -89,6 +89,28 @@ export default function ROISection() {
           </div>
         </div>
 
+        {/* ROI calculation */}
+        <div className="border-t border-b border-gray-200 py-8 mb-10">
+          <p className="text-xs font-bold text-teal tracking-widest mb-5">コスト試算 — スタッフ10名のステーション</p>
+          <div className="flex flex-wrap items-baseline gap-x-6 gap-y-3">
+            <div>
+              <span className="text-4xl font-black text-navy">480,000</span>
+              <span className="text-sm text-body ml-1.5">円/月 節約効果</span>
+            </div>
+            <span className="text-2xl text-gray-300 font-light">−</span>
+            <div>
+              <span className="text-3xl font-black text-coral">29,800</span>
+              <span className="text-sm text-body ml-1.5">円/月 kowairo費用</span>
+            </div>
+            <span className="text-2xl text-gray-300 font-light">=</span>
+            <div>
+              <span className="text-4xl font-black text-teal">約450,000</span>
+              <span className="text-sm text-body ml-1.5">円/月 の純利益</span>
+            </div>
+          </div>
+          <p className="text-xs text-body/60 mt-4">※ 看護師時給3,000円、1日1時間の記録業務を想定。料金はスタンダードプラン（〜15名）の場合。</p>
+        </div>
+
         {/* Benefits — divider list */}
         <div className="grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-gray-200 border-t border-gray-200 pt-10">
           {benefits.map((b) => (
