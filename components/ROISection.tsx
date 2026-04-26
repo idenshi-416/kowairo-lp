@@ -1,20 +1,15 @@
-import { TrendingUp, Users, Star } from "lucide-react";
-
 const benefits = [
   {
-    icon: TrendingUp,
     title: "生産性向上",
     items: ["記録時間80%削減", "利益率改善", "残業・持ち帰りゼロへ"],
     color: "#3FA39A",
   },
   {
-    icon: Star,
     title: "ケアマネ連携強化",
     items: ["質の高い報告書が営業ツールに", "紹介獲得 → 売上UP", "地域内での信頼向上"],
     color: "#E5876B",
   },
   {
-    icon: Users,
     title: "採用魅力度UP",
     items: ["応募数向上・離職率低下", "採用コスト圧縮", "「記録が楽」が口コミに"],
     color: "#D4A03B",
@@ -97,18 +92,11 @@ export default function ROISection() {
         {/* Benefits — horizontal list */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {benefits.map((b) => {
-            const Icon = b.icon;
             return (
               <div
                 key={b.title}
                 className="bg-white rounded-2xl border border-gray-100 shadow-sm p-6 flex gap-4"
               >
-                <div
-                  className="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5"
-                  style={{ backgroundColor: `${b.color}15` }}
-                >
-                  <Icon size={18} style={{ color: b.color }} />
-                </div>
                 <div>
                   <h3 className="text-navy font-bold text-sm mb-2">{b.title}</h3>
                   <ul className="space-y-1">

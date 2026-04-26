@@ -1,5 +1,3 @@
-import { Zap, Heart, Award } from "lucide-react";
-
 export default function FeaturesSection() {
   return (
     <section id="features" className="section-padding bg-cream">
@@ -18,10 +16,7 @@ export default function FeaturesSection() {
         {/* Feature 1 — wide left */}
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-6 mb-6">
           <div className="lg:col-span-3 bg-white rounded-2xl p-8 border border-gray-100 shadow-sm">
-            <div className="flex items-start gap-5">
-              <div className="w-12 h-12 rounded-xl bg-teal/10 flex items-center justify-center flex-shrink-0 mt-1">
-                <Zap size={24} className="text-teal" />
-              </div>
+            <div>
               <div>
                 <p className="text-xs font-bold text-teal tracking-widest mb-1">TIME SAVING</p>
                 <h3 className="text-2xl font-black text-navy mb-1">圧倒的な時短</h3>
@@ -47,9 +42,6 @@ export default function FeaturesSection() {
           </div>
 
           <div className="lg:col-span-2 bg-white rounded-2xl p-8 border border-gray-100 shadow-sm">
-            <div className="w-12 h-12 rounded-xl bg-coral/10 flex items-center justify-center mb-5">
-              <Heart size={24} className="text-coral" />
-            </div>
             <p className="text-xs font-bold text-coral tracking-widest mb-1">CONTEXT</p>
             <h3 className="text-xl font-black text-navy mb-1">生活文脈の蓄積</h3>
             <p className="text-coral font-bold text-sm mb-4">在宅ならではの個別ケア</p>
@@ -63,9 +55,6 @@ export default function FeaturesSection() {
 
         {/* Feature 3 — full width horizontal */}
         <div className="bg-navy rounded-2xl p-8 text-white flex flex-col md:flex-row items-start md:items-center gap-8">
-          <div className="w-14 h-14 rounded-xl bg-mustard/20 flex items-center justify-center flex-shrink-0">
-            <Award size={28} className="text-mustard" />
-          </div>
           <div className="flex-1">
             <p className="text-xs font-bold text-mustard tracking-widest mb-1">QUALITY</p>
             <h3 className="text-xl font-black mb-2">記録の標準化</h3>

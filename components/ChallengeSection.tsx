@@ -1,8 +1,7 @@
-import { Clock, FileX, TrendingDown, ArrowRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 const challenges = [
   {
-    icon: Clock,
     label: "課題 1",
     title: "時間の圧迫と残業",
     description:
@@ -10,7 +9,6 @@ const challenges = [
     accentColor: "#E5876B",
   },
   {
-    icon: FileX,
     label: "課題 2",
     title: "記録の形骸化",
     description:
@@ -18,7 +16,6 @@ const challenges = [
     accentColor: "#D4A03B",
   },
   {
-    icon: TrendingDown,
     label: "課題 3",
     title: "連携不足による機会損失",
     description:
@@ -45,7 +42,6 @@ export default function ChallengeSection() {
 
         <div className="space-y-6">
           {challenges.map((item, i) => {
-            const Icon = item.icon;
             const isEven = i % 2 === 1;
             return (
               <div
@@ -57,13 +53,6 @@ export default function ChallengeSection() {
                   className="md:w-2 flex-shrink-0"
                   style={{ backgroundColor: item.accentColor }}
                 />
-                {/* Icon panel */}
-                <div
-                  className="flex items-center justify-center px-8 py-6 md:py-0 md:w-24 flex-shrink-0"
-                  style={{ backgroundColor: `${item.accentColor}0f` }}
-                >
-                  <Icon size={32} style={{ color: item.accentColor }} />
-                </div>
                 {/* Content */}
                 <div className="flex-1 px-8 py-7">
                   <p className="text-xs font-bold tracking-widest mb-2" style={{ color: item.accentColor }}>
