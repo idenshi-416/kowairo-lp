@@ -1,5 +1,4 @@
 import Image from "next/image";
-import { KowairoLogoLight } from "./KowairoLogo";
 
 const footerLinks = [
   { label: "特徴", href: "#features" },
@@ -14,7 +13,13 @@ export default function Footer() {
       <div className="max-w-6xl mx-auto px-4">
         <div className="flex flex-col md:flex-row items-start justify-between gap-8 mb-10">
           <div>
-            <KowairoLogoLight className="mb-3" />
+            <Image
+              src="/images/kowairo-logo.png"
+              alt="kowairo"
+              width={140}
+              height={40}
+              className="object-contain brightness-0 invert opacity-80 mb-3"
+            />
             <p className="text-sm leading-relaxed max-w-xs">
               訪問看護の「付加価値を生み出さない時間」をなくし、
               スタッフを楽にする音声アシスタント。
