@@ -19,13 +19,13 @@ export default function Footer() {
               訪問看護の「付加価値を生み出さない時間」をなくし、
               スタッフを楽にする音声アシスタント。
             </p>
-            <div className="mt-6 flex items-center gap-3">
+            <div className="mt-6 inline-flex items-center bg-white/10 rounded-lg px-3 py-2">
               <Image
                 src="/images/idenshi-logo.png"
                 alt="株式会社医伝士"
                 width={100}
                 height={32}
-                className="brightness-0 invert opacity-50"
+                className="object-contain"
               />
             </div>
             <p className="text-xs mt-2 text-white/40">代表取締役医師：宗 大貴</p>
