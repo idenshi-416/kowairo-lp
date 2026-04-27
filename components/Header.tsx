@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
+import Image from "next/image";
 import { Menu, X } from "lucide-react";
-import { KowairoLogo } from "./KowairoLogo";
 
 const navLinks = [
   { label: "特徴", href: "#features" },
@@ -17,7 +17,15 @@ export default function Header() {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-cream/90 backdrop-blur-sm border-b border-gray-100">
       <div className="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
-        <KowairoLogo />
+        <a href="/">
+          <Image
+            src="/images/kowairo-logo.png"
+            alt="kowairo"
+            width={140}
+            height={40}
+            className="object-contain"
+          />
+        </a>
         <nav className="hidden md:flex items-center gap-8">
           {navLinks.map((link) => (
             <a
