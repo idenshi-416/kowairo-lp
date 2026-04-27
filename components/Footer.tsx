@@ -25,7 +25,7 @@ export default function Footer() {
                 alt="株式会社医伝士"
                 width={100}
                 height={32}
-                className="opacity-60"
+                className="brightness-0 invert opacity-50"
               />
             </div>
             <p className="text-xs mt-2 text-white/40">代表取締役医師：宗 大貴</p>
