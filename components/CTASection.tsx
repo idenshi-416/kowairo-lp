@@ -1,13 +1,20 @@
+"use client";
 import { Mic, ArrowRight, Phone } from "lucide-react";
+import { useInView } from "@/app/hooks/useInView";
 
 export default function CTASection() {
+  const { ref, inView } = useInView(0.1);
+
   return (
     <section id="trial" className="section-padding bg-gradient-to-br from-teal to-teal-dark relative overflow-hidden">
       {/* Decorative circles */}
       <div className="absolute top-[-120px] right-[-120px] w-[400px] h-[400px] rounded-full bg-white/5" />
       <div className="absolute bottom-[-80px] left-[-60px] w-[280px] h-[280px] rounded-full bg-white/5" />
 
-      <div className="container-narrow relative z-10 text-center">
+      <div
+        ref={ref as React.RefObject<HTMLDivElement>}
+        className={`container-narrow relative z-10 text-center transition-all duration-700 ${inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
+      >
         <div className="inline-flex items-center gap-2 bg-white/20 text-white text-sm font-bold px-4 py-2 rounded-full mb-8">
           <Mic size={14} />
           <span>2週間 完全無料トライアル実施中</span>

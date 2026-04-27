@@ -1,4 +1,6 @@
+"use client";
 import { Check } from "lucide-react";
+import { useInView } from "@/app/hooks/useInView";
 
 const plans = [
   {
@@ -31,10 +33,16 @@ const plans = [
 ];
 
 export default function PricingSection() {
+  const { ref: headRef, inView: headIn } = useInView();
+  const { ref: cardsRef, inView: cardsIn } = useInView();
+
   return (
     <section id="pricing" className="section-padding bg-white">
       <div className="container-wide">
-        <div className="text-center mb-16">
+        <div
+          ref={headRef as React.RefObject<HTMLDivElement>}
+          className={`text-center mb-16 transition-all duration-700 ${headIn ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
+        >
           <span className="section-label">PRICING</span>
           <h2 className="section-title">
             シンプルな
@@ -47,20 +55,22 @@ export default function PricingSection() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
-          {plans.map((plan) => (
+        <div
+          ref={cardsRef as React.RefObject<HTMLDivElement>}
+          className="grid grid-cols-1 md:grid-cols-3 gap-8 items-start"
+        >
+          {plans.map((plan, i) => (
             <div
               key={plan.name}
-              className={`rounded-2xl overflow-hidden border-2 transition-shadow ${
+              className={`rounded-2xl overflow-hidden border-2 transition-all duration-700 ${
                 plan.highlighted
                   ? "border-teal shadow-2xl shadow-teal/20 scale-105"
                   : "border-gray-100 shadow-sm"
-              }`}
+              } ${cardsIn ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
+              style={{ transitionDelay: `${i * 120}ms` }}
             >
               {/* Header */}
-              <div
-                className={`px-8 py-6 ${plan.highlighted ? "bg-teal text-white" : "bg-gray-50 text-navy"}`}
-              >
+              <div className={`px-8 py-6 ${plan.highlighted ? "bg-teal text-white" : "bg-gray-50 text-navy"}`}>
                 {plan.highlighted && (
                   <div className="inline-block bg-white/20 text-white text-xs font-bold px-3 py-1 rounded-full mb-3">
                     おすすめ
@@ -82,11 +92,7 @@ export default function PricingSection() {
                 ) : (
                   <div className="text-3xl font-black">お見積り</div>
                 )}
-                <p
-                  className={`text-sm mt-2 font-medium ${
-                    plan.highlighted ? "text-white/70" : "text-body"
-                  }`}
-                >
+                <p className={`text-sm mt-2 font-medium ${plan.highlighted ? "text-white/70" : "text-body"}`}>
                   {plan.capacity}
                 </p>
               </div>

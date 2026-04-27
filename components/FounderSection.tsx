@@ -1,12 +1,20 @@
+"use client";
 import Image from "next/image";
+import { useInView } from "@/app/hooks/useInView";
 
 export default function FounderSection() {
+  const { ref: photoRef, inView: photoIn } = useInView();
+  const { ref: textRef, inView: textIn } = useInView();
+
   return (
     <section className="section-padding bg-white">
       <div className="container-wide">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           {/* Photo */}
-          <div className="relative">
+          <div
+            ref={photoRef as React.RefObject<HTMLDivElement>}
+            className={`relative transition-all duration-700 ${photoIn ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-8"}`}
+          >
             <Image
               src="/images/ceo.jpg"
               alt="代表取締役医師 宗 大貴"
@@ -17,7 +25,10 @@ export default function FounderSection() {
           </div>
 
           {/* Message */}
-          <div>
+          <div
+            ref={textRef as React.RefObject<HTMLDivElement>}
+            className={`transition-all duration-700 delay-150 ${textIn ? "opacity-100 translate-x-0" : "opacity-0 translate-x-8"}`}
+          >
             <span className="section-label">FOUNDER</span>
             <h2 className="section-title mb-8">
               医師として、

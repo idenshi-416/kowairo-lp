@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import { Menu, X } from "lucide-react";
 
@@ -13,10 +13,17 @@ const navLinks = [
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 60);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-cream/90 backdrop-blur-sm border-b border-gray-100">
-      <div className="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
+    <header className={`fixed top-0 left-0 right-0 z-50 border-b transition-all duration-300 ${scrolled ? "bg-white border-gray-200 shadow-sm h-14" : "bg-cream/90 backdrop-blur-sm border-gray-100 h-16"}`}>
+      <div className="max-w-6xl mx-auto px-4 h-full flex items-center justify-between">
         <a href="/">
           <Image
             src="/images/kowairo-logo.png"
