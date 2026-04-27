@@ -13,13 +13,15 @@ export default function Footer() {
       <div className="max-w-6xl mx-auto px-4">
         <div className="flex flex-col md:flex-row items-start justify-between gap-8 mb-10">
           <div>
-            <Image
-              src="/images/kowairo-logo.png"
-              alt="kowairo"
-              width={140}
-              height={40}
-              className="object-contain brightness-0 invert opacity-80 mb-3"
-            />
+            <div className="inline-flex bg-white/15 rounded-lg px-3 py-2 mb-3">
+              <Image
+                src="/images/kowairo-logo.png"
+                alt="kowairo"
+                width={120}
+                height={36}
+                className="object-contain"
+              />
+            </div>
             <p className="text-sm leading-relaxed max-w-xs">
               訪問看護の「付加価値を生み出さない時間」をなくし、
               スタッフを楽にする音声アシスタント。
