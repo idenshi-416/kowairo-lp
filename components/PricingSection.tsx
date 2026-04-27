@@ -57,14 +57,14 @@ export default function PricingSection() {
 
         <div
           ref={cardsRef as React.RefObject<HTMLDivElement>}
-          className="grid grid-cols-1 md:grid-cols-3 gap-8 items-start"
+          className="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch"
         >
           {plans.map((plan, i) => (
             <div
               key={plan.name}
-              className={`rounded-2xl overflow-hidden border-2 transition-all duration-700 ${
+              className={`rounded-2xl overflow-hidden border-2 flex flex-col transition-all duration-700 ${
                 plan.highlighted
-                  ? "border-teal shadow-2xl shadow-teal/20 scale-105"
+                  ? "border-teal shadow-2xl shadow-teal/20"
                   : "border-gray-100 shadow-sm"
               } ${cardsIn ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
               style={{ transitionDelay: `${i * 120}ms` }}
@@ -98,8 +98,8 @@ export default function PricingSection() {
               </div>
 
               {/* Features */}
-              <div className="bg-white px-8 py-6">
-                <ul className="space-y-3 mb-8">
+              <div className="bg-white px-8 py-6 flex flex-col flex-1">
+                <ul className="space-y-3 mb-8 flex-1">
                   {plan.features.map((f) => (
                     <li key={f} className="flex items-center gap-3 text-body text-sm">
                       <Check size={16} className="text-teal flex-shrink-0" />

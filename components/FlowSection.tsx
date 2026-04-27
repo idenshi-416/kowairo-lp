@@ -38,13 +38,16 @@ export default function FlowSection() {
 
         <div className="divide-y divide-gray-200">
           {steps.map((step, i) => (
-            <div key={step.title} className="flex gap-8 py-8 first:pt-0 last:pb-0">
-              <div className="flex-shrink-0 w-20 pt-0.5">
-                <span className="text-xs font-bold text-teal tracking-widest">STEP {i + 1}</span>
-                <p className="text-xs text-body mt-1.5">{step.duration}</p>
+            <div key={step.title} className="flex gap-10 py-10 first:pt-0 last:pb-0 items-start">
+              <div className="flex-shrink-0 w-28">
+                <div className="text-xs font-bold text-teal/60 tracking-widest mb-1">STEP</div>
+                <div className="text-4xl font-black text-teal leading-none">
+                  {String(i + 1).padStart(2, "0")}
+                </div>
+                <p className="text-xs text-body mt-2 bg-white rounded-full px-2 py-0.5 inline-block border border-gray-200">{step.duration}</p>
               </div>
-              <div className="flex-1">
-                <h3 className="text-lg font-bold text-navy mb-2">{step.title}</h3>
+              <div className="flex-1 pt-1">
+                <h3 className="text-2xl font-bold text-navy mb-3">{step.title}</h3>
                 <p className="text-body text-sm leading-relaxed">{step.description}</p>
               </div>
             </div>
