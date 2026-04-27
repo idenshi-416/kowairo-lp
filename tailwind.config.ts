@@ -11,9 +11,9 @@ const config: Config = {
       colors: {
         cream: "#FAF8F4",
         teal: {
-          DEFAULT: "#3FA39A",
-          light: "#5BB8AF",
-          dark: "#2E8078",
+          DEFAULT: "#4A90D9",
+          light: "#6BAEE8",
+          dark: "#2B70B8",
         },
         coral: "#E5876B",
         mustard: "#D4A03B",

@@ -20,7 +20,7 @@ const challenges = [
     title: "連携不足による機会損失",
     description:
       "ケアマネへの報告遅延や内容の薄さが、紹介減・減収につながります。質の高い報告書そのものが営業力になる時代です。",
-    accentColor: "#3FA39A",
+    accentColor: "#4A90D9",
   },
 ];
 

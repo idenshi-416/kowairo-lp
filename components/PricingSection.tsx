@@ -8,7 +8,7 @@ const plans = [
     description: "小規模ステーション向け",
     features: ["常勤換算5名まで", "利用時間無制限", "訪問看護記録自動生成", "月末サマリ自動生成", "メールサポート"],
     highlighted: false,
-    color: "#3FA39A",
+    color: "#4A90D9",
   },
   {
     name: "スタンダード",
@@ -17,7 +17,7 @@ const plans = [
     description: "中規模ステーションに最適",
     features: ["常勤換算15名まで", "利用時間無制限", "訪問看護記録自動生成", "月末サマリ自動生成", "カンファレンス資料対応", "優先サポート"],
     highlighted: true,
-    color: "#3FA39A",
+    color: "#4A90D9",
   },
   {
     name: "エンタープライズ",

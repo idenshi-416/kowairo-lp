@@ -5,7 +5,7 @@ export function KowairoLogo({ className = "" }: { className?: string }) {
         {/* Wave/squiggle emblem */}
         <path
           d="M6 28 C8 20, 14 16, 20 20 C26 24, 32 18, 38 14 C40 12, 42 10, 44 8"
-          stroke="#3FA39A"
+          stroke="#4A90D9"
           strokeWidth="3.5"
           strokeLinecap="round"
           strokeLinejoin="round"
@@ -13,14 +13,14 @@ export function KowairoLogo({ className = "" }: { className?: string }) {
         />
         <path
           d="M4 32 C8 24, 16 20, 24 24 C32 28, 36 22, 42 16"
-          stroke="#3FA39A"
+          stroke="#4A90D9"
           strokeWidth="2.5"
           strokeLinecap="round"
           fill="none"
           opacity="0.5"
         />
         {/* Small dot accent */}
-        <circle cx="24" cy="10" r="2.5" fill="#3FA39A" opacity="0.6" />
+        <circle cx="24" cy="10" r="2.5" fill="#4A90D9" opacity="0.6" />
       </svg>
       <span
         className="text-2xl font-black tracking-tight text-navy"
@@ -38,7 +38,7 @@ export function KowairoLogoLight({ className = "" }: { className?: string }) {
       <svg width="48" height="40" viewBox="0 0 48 40" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path
           d="M6 28 C8 20, 14 16, 20 20 C26 24, 32 18, 38 14 C40 12, 42 10, 44 8"
-          stroke="#5BB8AF"
+          stroke="#6BAEE8"
           strokeWidth="3.5"
           strokeLinecap="round"
           strokeLinejoin="round"
@@ -46,13 +46,13 @@ export function KowairoLogoLight({ className = "" }: { className?: string }) {
         />
         <path
           d="M4 32 C8 24, 16 20, 24 24 C32 28, 36 22, 42 16"
-          stroke="#5BB8AF"
+          stroke="#6BAEE8"
           strokeWidth="2.5"
           strokeLinecap="round"
           fill="none"
           opacity="0.5"
         />
-        <circle cx="24" cy="10" r="2.5" fill="#5BB8AF" opacity="0.6" />
+        <circle cx="24" cy="10" r="2.5" fill="#6BAEE8" opacity="0.6" />
       </svg>
       <span
         className="text-2xl font-black tracking-tight text-white"

@@ -40,7 +40,7 @@ export default function HowItWorksSection() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
           {steps.map((step) => (
             <div key={step.step}>
-              <p className="text-8xl font-black leading-none mb-5" style={{ color: '#3FA39A', opacity: 0.18 }}>
+              <p className="text-8xl font-black leading-none mb-5" style={{ color: '#4A90D9', opacity: 0.18 }}>
                 {String(step.step).padStart(2, "0")}
               </p>
               <h3 className="text-lg font-bold text-navy mb-3">{step.title}</h3>

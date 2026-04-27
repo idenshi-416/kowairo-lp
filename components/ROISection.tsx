@@ -2,7 +2,7 @@ const benefits = [
   {
     title: "生産性向上",
     items: ["記録時間80%削減", "利益率改善", "残業・持ち帰りゼロへ"],
-    color: "#3FA39A",
+    color: "#4A90D9",
   },
   {
     title: "ケアマネ連携強化",
