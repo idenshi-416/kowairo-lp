@@ -4,23 +4,18 @@ import { useInView } from "@/app/hooks/useInView";
 const steps = [
   {
     step: 1,
-    title: "アプリを起動",
-    description: "訪問先に着いたらアプリを起動。難しい操作は一切ありません。",
+    title: "訪問先でアプリを起動",
+    description: "訪問先に着いたらアプリを起動するだけ。難しい操作は一切ありません。",
   },
   {
     step: 2,
-    title: "いつも通り会話",
-    description: "利用者様とのいつも通りの会話を録音。記録システムや他アプリとの同時使用もOK。",
+    title: "いつも通りケアと会話",
+    description: "利用者様とのいつも通りの会話をバックグラウンドで録音。他のアプリとの同時使用もOKです。",
   },
   {
     step: 3,
-    title: "「停止」を押すだけ",
-    description: "訪問終了時に停止ボタンを押すだけ。それだけで作業は完了です。",
-  },
-  {
-    step: 4,
-    title: "記録が自動生成",
-    description: "AIが「訪問看護記録案」「報告書サマリ」を自動作成。コピペで電子カルテに転記できます。",
+    title: "「停止」で記録が完成",
+    description: "訪問終了時に停止ボタンを押すだけ。SOAP形式の訪問看護記録・報告書サマリが自動生成されます。コピペで電子カルテに転記できます。",
   },
 ];
 
@@ -39,7 +34,7 @@ export default function HowItWorksSection() {
           <span className="section-label">HOW IT WORKS</span>
           <h2 className="section-title">
             使い方は
-            <span className="text-teal"> 4ステップ</span>
+            <span className="text-teal"> 3ステップ</span>
             で完了
           </h2>
           <p className="section-subtitle">
@@ -49,7 +44,7 @@ export default function HowItWorksSection() {
 
         <div
           ref={stepsRef as React.RefObject<HTMLDivElement>}
-          className="grid grid-cols-1 md:grid-cols-4 gap-10"
+          className="grid grid-cols-1 md:grid-cols-3 gap-10"
         >
           {steps.map((step, i) => (
             <div

@@ -29,18 +29,18 @@ export default function HeroSection() {
         {/* Main headline */}
         <h1 className="text-4xl md:text-5xl lg:text-[3.5rem] font-black text-navy leading-[1.2] mb-6">
           <span className={`block ${item()}`} style={style(250)}>
-            「話す」が、そのまま
+            話すだけで、
           </span>
           <span className={`block ${item()}`} style={style(420)}>
-            <span className="text-teal">「記録」</span>になる。
+            <span className="text-teal">記録が完成</span>する。
           </span>
         </h1>
 
         <div className={item()} style={style(580)}>
           <p className="text-body text-lg md:text-xl leading-relaxed mb-10 max-w-lg">
-            訪問看護の「付加価値を生み出さない時間」をなくし、
+            訪問中の会話をアプリで録音するだけ。AIが自動で訪問看護記録・報告書・サマリを下書き。
             <br className="hidden md:block" />
-            スタッフを楽にする音声アシスタント
+            今の電子カルテはそのままで使えます。
           </p>
         </div>
 

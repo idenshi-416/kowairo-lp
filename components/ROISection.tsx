@@ -24,16 +24,12 @@ const benefits = [
 export default function ROISection() {
   const { ref: headRef, inView: headIn } = useInView();
   const { ref: statsRef, inView: statsIn } = useInView();
-  const { ref: calcRef, inView: calcIn } = useInView();
   const { ref: benefitsRef, inView: benefitsIn } = useInView();
 
   const [hoveredBenefit, setHoveredBenefit] = useState<number | null>(null);
 
   const count80 = useCountUp(80, 1600, statsIn);
   const count70 = useCountUp(70, 1600, statsIn);
-  const count480 = useCountUp(480000, 1800, calcIn);
-  const count29 = useCountUp(29800, 1800, calcIn);
-  const count450 = useCountUp(450000, 1800, calcIn);
 
   return (
     <section id="roi" className="section-padding bg-cream">
@@ -111,31 +107,6 @@ export default function ROISection() {
               </div>
             </div>
           </div>
-        </div>
-
-        {/* ROI calculation */}
-        <div
-          ref={calcRef as React.RefObject<HTMLDivElement>}
-          className={`border-t border-b border-gray-200 py-8 mb-10 transition-all duration-700 ${calcIn ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
-        >
-          <p className="text-xs font-bold text-teal tracking-widest mb-5">コスト試算 — スタッフ10名のステーション</p>
-          <div className="flex flex-wrap items-baseline gap-x-6 gap-y-3">
-            <div>
-              <span className="text-4xl font-black text-navy">{count480.toLocaleString()}</span>
-              <span className="text-sm text-body ml-1.5">円/月 節約効果</span>
-            </div>
-            <span className="text-2xl text-gray-300 font-light">−</span>
-            <div>
-              <span className="text-3xl font-black text-coral">{count29.toLocaleString()}</span>
-              <span className="text-sm text-body ml-1.5">円/月 kowairo費用</span>
-            </div>
-            <span className="text-2xl text-gray-300 font-light">=</span>
-            <div>
-              <span className="text-4xl font-black text-teal">約{count450.toLocaleString()}</span>
-              <span className="text-sm text-body ml-1.5">円/月 の純利益</span>
-            </div>
-          </div>
-          <p className="text-xs text-body/60 mt-4">※ 看護師時給3,000円、1日1時間の記録業務を想定。料金はスタンダードプラン（〜15名）の場合。</p>
         </div>
 
         {/* Benefits */}
