@@ -16,7 +16,7 @@ export default function FounderSection() {
             className={`relative transition-all duration-700 ${photoIn ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-8"}`}
           >
             <Image
-              src="/images/ceo.jpg"
+              src="/kowairo-lp/images/ceo.jpg"
               alt="代表取締役医師 宗 大貴"
               width={560}
               height={640}

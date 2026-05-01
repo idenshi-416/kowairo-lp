@@ -15,7 +15,7 @@ export default function Footer() {
           <div>
             <div className="mb-3">
               <Image
-                src="/images/kowairo-logo.png"
+                src="/kowairo-lp/images/kowairo-logo.png"
                 alt="kowairo"
                 width={120}
                 height={36}
@@ -23,12 +23,12 @@ export default function Footer() {
               />
             </div>
             <p className="text-sm leading-relaxed max-w-xs text-body">
-              訪問看護の「付加価値を生み出さない時間」をなくし、
-              スタッフを楽にする音声アシスタント。
+              訪問看護の「付加価値を生み出さない時間」を<br />
+              なくし、スタッフを楽にする音声アシスタント。
             </p>
             <div className="mt-6">
               <Image
-                src="/images/idenshi-logo.png"
+                src="/kowairo-lp/images/idenshi-logo.png"
                 alt="株式会社医伝士"
                 width={100}
                 height={32}

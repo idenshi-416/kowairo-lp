@@ -39,11 +39,11 @@ export default function FeaturesSection() {
               <p className="text-xs font-bold text-teal tracking-widest mb-1">TIME SAVING</p>
               <h3 className="text-2xl font-black text-navy mb-1">圧倒的な時短</h3>
               <p className="text-teal font-bold text-sm mb-4">記録時間 80% 削減</p>
-              <p className="text-body leading-relaxed mb-6">
-                日々の記録から月末サマリ、カンファレンス資料まで対応。
-                1日1時間かかっていた記録が<strong className="text-navy">約12分</strong>に。
-                残業削減・ワークライフバランス改善に直結します。
-              </p>
+              <div className="text-body leading-relaxed mb-6 space-y-1">
+                <p>日々の記録から月末サマリ、カンファレンス資料まで対応。</p>
+                <p>1日1時間かかっていた記録が<strong className="text-navy">約12分</strong>に。</p>
+                <p>残業削減・ワークライフバランス改善に直結します。</p>
+              </div>
               <div className="flex items-center gap-6">
                 <div className="text-center">
                   <p className="text-4xl font-black text-navy">1<span className="text-xl">時間</span></p>
@@ -55,6 +55,7 @@ export default function FeaturesSection() {
                   <p className="text-xs text-body mt-1">導入後</p>
                 </div>
               </div>
+              <p className="text-xs text-body/50 mt-4">※当社PoC実績（n=20人、3ヶ月）</p>
             </div>
           </div>
 
@@ -66,11 +67,11 @@ export default function FeaturesSection() {
             <p className="text-xs font-bold text-coral tracking-widest mb-1">CONTEXT</p>
             <h3 className="text-xl font-black text-navy mb-1">生活文脈の蓄積</h3>
             <p className="text-coral font-bold text-sm mb-4">在宅ならではの個別ケア</p>
-            <p className="text-body text-sm leading-relaxed">
-              自然な会話から「生活上の課題」をAIが自動抽出。
-              患者様の些細な変化も逃さず記録。
-              利用者様との会話に集中できるようになります。
-            </p>
+            <div className="text-body leading-relaxed space-y-1">
+              <p>自然な会話から「生活上の課題」をAIが自動抽出。</p>
+              <p>患者様の些細な変化も逃さず記録。</p>
+              <p>利用者様との会話に集中できるようになります。</p>
+            </div>
           </div>
         </div>
 
@@ -85,11 +86,11 @@ export default function FeaturesSection() {
             <h3 className="text-xl font-black mb-2">記録の標準化</h3>
             <p className="text-white/70 text-sm leading-relaxed">
               スタッフの経験や文章力に依存せず、AIが要点を整理。
-              新人からベテランまで、均一に質の高い記録を生成。
+              新人からベテランまで、均一に質の高い記録を生成。<br />
               ケアマネへの報告書が、そのまま<span className="text-mustard font-bold">営業ツール</span>になります。
             </p>
           </div>
-          <div className="flex flex-wrap gap-3 flex-shrink-0">
+          <div className="flex flex-col gap-3 flex-shrink-0 md:w-48 md:mr-24">
             {["経験・文章力に左右されない", "ケアマネ報告書を自動生成", "紹介獲得・売上向上に貢献"].map((t) => (
               <span key={t} className="text-xs bg-white/10 text-white/80 px-3 py-1.5 rounded-full">
                 {t}

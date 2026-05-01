@@ -5,17 +5,17 @@ const steps = [
   {
     step: 1,
     title: "訪問先でアプリを起動",
-    description: "訪問先に着いたらアプリを起動するだけ。難しい操作は一切ありません。",
+    description: "訪問先に着いたらアプリを起動するだけ。\n難しい操作は一切ありません。",
   },
   {
     step: 2,
     title: "いつも通りケアと会話",
-    description: "利用者様とのいつも通りの会話をバックグラウンドで録音。他のアプリとの同時使用もOKです。",
+    description: "利用者様とのいつも通りの会話をバックグラウンドで<br/>録音。他のアプリとの同時使用もOKです。",
   },
   {
     step: 3,
     title: "「停止」で記録が完成",
-    description: "訪問終了時に停止ボタンを押すだけ。SOAP形式の訪問看護記録・報告書サマリが自動生成されます。コピペで電子カルテに転記できます。",
+    description: "訪問終了時に停止ボタンを押すだけ。SOAP形式の\n訪問看護記録・報告書サマリが自動生成されます。\nコピペで電子カルテに転記できます。",
   },
 ];
 
@@ -56,7 +56,7 @@ export default function HowItWorksSection() {
                 {String(step.step).padStart(2, "0")}
               </p>
               <h3 className="text-lg font-bold text-navy mb-3">{step.title}</h3>
-              <p className="text-body text-sm leading-relaxed">{step.description}</p>
+              <p className="text-body text-sm leading-relaxed whitespace-pre-line" dangerouslySetInnerHTML={{ __html: step.description }} />
             </div>
           ))}
         </div>
@@ -66,10 +66,10 @@ export default function HowItWorksSection() {
           className={`mt-16 border-t border-gray-100 pt-10 transition-all duration-700 ${noteIn ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
         >
           <p className="font-bold text-navy mb-1">既存システムはそのまま使えます</p>
-          <p className="text-body text-sm leading-relaxed max-w-2xl">
-            電子カルテ・レセコンの入れ替えは不要です。kowairoが生成した記録をコピー＆ペーストで転記するだけ。
-            導入のハードルを極限まで下げました。
-          </p>
+          <div className="text-body text-sm max-w-2xl space-y-1">
+            <p>電子カルテ・レセコンの入れ替えは不要です。</p>
+            <p>kowairoが生成した記録をコピー＆ペーストで転記するだけ。導入のハードルを極限まで下げました。</p>
+          </div>
         </div>
       </div>
     </section>

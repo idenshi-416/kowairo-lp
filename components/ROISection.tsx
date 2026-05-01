@@ -29,7 +29,7 @@ export default function ROISection() {
   const [hoveredBenefit, setHoveredBenefit] = useState<number | null>(null);
 
   const count80 = useCountUp(80, 1600, statsIn);
-  const count70 = useCountUp(70, 1600, statsIn);
+
 
   return (
     <section id="roi" className="section-padding bg-cream">
@@ -63,45 +63,39 @@ export default function ROISection() {
                 <span className="text-8xl font-black text-teal leading-none">{count80}</span>
                 <span className="text-4xl font-black text-white/60 mb-3">%</span>
               </div>
-              <p className="text-white/70 text-sm">
-                1日1時間かかっていた記録が
-                <strong className="text-white"> 約12分</strong>に。
-                看護師時給3,000円換算で、
-                <strong className="text-white">月間約48,000円/1名</strong>のコスト効果。
-              </p>
+              <div className="text-white/70 text-sm space-y-1">
+                <p>1日1時間かかっていた記録が<strong className="text-white"> 約12分</strong>に。</p>
+                <p>看護師時給3,000円換算で、<strong className="text-white">月間約48,000円/1名</strong>のコスト効果。</p>
+              </div>
+              <p className="text-white/40 text-xs mt-3">※当社PoC実績（n=20人、3ヶ月）</p>
             </div>
           </div>
 
           {/* Right: Two smaller stats */}
           <div className="grid grid-rows-2 gap-6">
             <div className={`bg-white rounded-2xl border border-gray-100 shadow-sm px-8 py-6 flex items-center gap-6 transition-all duration-700 delay-150 ${statsIn ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
-              <div>
-                <div className="flex items-end gap-1">
-                  <span className="text-5xl font-black text-coral leading-none">{count70}</span>
-                  <span className="text-2xl font-black text-coral/60 mb-1">%</span>
-                </div>
-                <p className="text-body text-xs mt-1">採用費用削減</p>
+              <div className="shrink-0 w-12 flex items-center justify-center">
+                <p className="text-5xl font-black text-coral leading-none">¥</p>
               </div>
               <div className="flex-1 pl-6 border-l border-gray-100">
-                <p className="text-navy font-bold text-sm mb-1">採用コストが大幅に下がる</p>
+                <p className="text-navy font-bold text-sm mb-1">採用コスト削減効果も期待できます</p>
                 <p className="text-body text-xs leading-relaxed">
-                  1人100万円 → 約30万円。
-                  「記録が楽」という口コミが応募増につながります。
+                  訪問看護の採用費は1名あたり80〜100万円が業界相場と言われています。
+                  「記録が楽」という働きやすさが口コミとして広がることで、
+                  応募増加・採用費削減の効果が期待できます。
                 </p>
+                <p className="text-body/50 text-xs mt-2">※採用費削減効果は導入環境により異なります</p>
               </div>
             </div>
 
             <div className={`bg-white rounded-2xl border border-gray-100 shadow-sm px-8 py-6 flex items-center gap-6 transition-all duration-700 delay-300 ${statsIn ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
-              <div>
-                <div className="flex items-end gap-1">
-                  <span className="text-5xl font-black text-mustard leading-none">↑</span>
-                </div>
-                <p className="text-body text-xs mt-1">紹介獲得数</p>
+              <div className="shrink-0 w-12 flex items-center justify-center">
+                <span className="text-5xl font-black text-mustard leading-none mb-1">↑</span>
               </div>
               <div className="flex-1 pl-6 border-l border-gray-100">
                 <p className="text-navy font-bold text-sm mb-1">報告書が営業ツールになる</p>
                 <p className="text-body text-xs leading-relaxed">
-                  質の高い報告書がケアマネからの信頼を高め、
+                  質の高い報告書がケアマネからの信頼を高め、<br />
                   新規紹介の増加に直結します。
                 </p>
               </div>

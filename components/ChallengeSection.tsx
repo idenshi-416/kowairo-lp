@@ -7,7 +7,7 @@ const challenges = [
     num: "01",
     title: "帰宅後の記録に30分〜1時間かかっている",
     description:
-      "訪問中は患者さんに集中できても、帰宅後の入力・月末のサマリ・報告書作成で毎日時間が消費されます。深夜まで記録が終わらない日も珍しくありません。",
+      "訪問中は患者さんに集中できても、帰宅後の入力・月末のサマリ・報告書作成で毎日時間が消費されます。\n深夜まで記録が終わらない日も珍しくありません。",
     accentColor: "#E5876B",
   },
   {
@@ -35,13 +35,11 @@ export default function ChallengeSection() {
       <div className="container-wide">
         <div
           ref={headRef as React.RefObject<HTMLDivElement>}
-          className={`max-w-2xl mb-16 transition-all duration-700 ${headIn ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
+          className={`mb-16 transition-all duration-700 ${headIn ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
         >
           <span className="section-label">CHALLENGE</span>
           <h2 className="section-title">
-            現場が疲弊する、
-            <br />
-            <span className="text-coral">本当の理由</span>
+            現場が疲弊する、<span className="text-coral">本当の理由</span>
           </h2>
           <p className="section-subtitle">
             「人手が足りない」だけではありません。記録業務が生み出す見えないコストが、スタッフと経営の両方を圧迫しています。
@@ -75,7 +73,7 @@ export default function ChallengeSection() {
                   style={{ backgroundColor: item.accentColor }}
                 />
                 <h3 className="text-2xl font-black text-navy mb-3">{item.title}</h3>
-                <p className="text-body leading-relaxed">{item.description}</p>
+                <p className="text-body leading-relaxed whitespace-pre-line">{item.description}</p>
               </div>
             </div>
           ))}
@@ -84,9 +82,8 @@ export default function ChallengeSection() {
         {/* Bridge */}
         <div className="mt-10 flex items-center gap-4">
           <div className="flex-1 h-px bg-gray-200" />
-          <div className="flex items-center gap-2 text-teal font-bold text-sm whitespace-nowrap">
+          <div className="flex items-center gap-2 text-teal font-black text-2xl whitespace-nowrap">
             kowairoが解決します
-            <ArrowRight size={16} />
           </div>
           <div className="flex-1 h-px bg-gray-200" />
         </div>
