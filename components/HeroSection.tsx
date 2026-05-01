@@ -85,15 +85,15 @@ export default function HeroSection() {
 
         {/* Scattered photos — 縦方向にずらして均等散布 */}
         {[
-          { src: "/kowairo-lp/images/nurse-visit.jpg", style: { top: "-8%",  left: "0%",   width: 235, height: 162, rotate: "-9deg"  } },
-          { src: "/kowairo-lp/images/visit-1.jpg",     style: { top: "-4%",  right: "-2%", width: 220, height: 152, rotate: "11deg"  } },
-          { src: "/kowairo-lp/images/visit-8.jpg",     style: { top: "12%",  left: "28%",  width: 218, height: 150, rotate: "5deg"   } },
-          { src: "/kowairo-lp/images/visit-6.jpg",     style: { top: "28%",  left: "-2%",  width: 225, height: 155, rotate: "7deg"   } },
-          { src: "/kowairo-lp/images/visit-5.jpg",     style: { top: "36%",  right: "-2%", width: 215, height: 148, rotate: "-10deg" } },
-          { src: "/kowairo-lp/images/visit-2.jpg",     style: { top: "50%",  left: "22%",  width: 210, height: 145, rotate: "-6deg"  } },
-          { src: "/kowairo-lp/images/visit-7.jpg",     style: { top: "62%",  left: "-2%",  width: 228, height: 157, rotate: "8deg"   } },
-          { src: "/kowairo-lp/images/visit-3.jpg",     style: { top: "68%",  right: "-2%", width: 220, height: 152, rotate: "-8deg"  } },
-          { src: "/kowairo-lp/images/visit-4.jpg",     style: { bottom: "-5%",left: "25%", width: 225, height: 155, rotate: "6deg"   } },
+          { src: "/images/nurse-visit.jpg", style: { top: "-8%",  left: "0%",   width: 235, height: 162, rotate: "-9deg"  } },
+          { src: "/images/visit-1.jpg",     style: { top: "-4%",  right: "-2%", width: 220, height: 152, rotate: "11deg"  } },
+          { src: "/images/visit-8.jpg",     style: { top: "12%",  left: "28%",  width: 218, height: 150, rotate: "5deg"   } },
+          { src: "/images/visit-6.jpg",     style: { top: "28%",  left: "-2%",  width: 225, height: 155, rotate: "7deg"   } },
+          { src: "/images/visit-5.jpg",     style: { top: "36%",  right: "-2%", width: 215, height: 148, rotate: "-10deg" } },
+          { src: "/images/visit-2.jpg",     style: { top: "50%",  left: "22%",  width: 210, height: 145, rotate: "-6deg"  } },
+          { src: "/images/visit-7.jpg",     style: { top: "62%",  left: "-2%",  width: 228, height: 157, rotate: "8deg"   } },
+          { src: "/images/visit-3.jpg",     style: { top: "68%",  right: "-2%", width: 220, height: 152, rotate: "-8deg"  } },
+          { src: "/images/visit-4.jpg",     style: { bottom: "-5%",left: "25%", width: 225, height: 155, rotate: "6deg"   } },
         ].map((photo, i) => (
           <div
             key={i}
@@ -122,7 +122,7 @@ export default function HeroSection() {
           style={{ transitionDelay: "800ms" }}
         >
           <Image
-            src="/kowairo-lp/images/app-mockup-transparent.png"
+            src="/images/app-mockup-transparent.png"
             alt="kowairoアプリ画面"
             width={420}
             height={490}

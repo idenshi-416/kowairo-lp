@@ -15,7 +15,7 @@ export default function Footer() {
           <div>
             <div className="mb-3">
               <Image
-                src="/kowairo-lp/images/kowairo-logo.png"
+                src="/images/kowairo-logo.png"
                 alt="kowairo"
                 width={120}
                 height={36}
@@ -28,7 +28,7 @@ export default function Footer() {
             </p>
             <div className="mt-6">
               <Image
-                src="/kowairo-lp/images/idenshi-logo.png"
+                src="/images/idenshi-logo.png"
                 alt="株式会社医伝士"
                 width={100}
                 height={32}

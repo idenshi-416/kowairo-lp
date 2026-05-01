@@ -26,7 +26,7 @@ export default function Header() {
       <div className="max-w-6xl mx-auto px-4 h-full flex items-center justify-between">
         <a href="/">
           <Image
-            src="/kowairo-lp/images/kowairo-logo.png"
+            src="/images/kowairo-logo.png"
             alt="kowairo"
             width={140}
             height={40}
