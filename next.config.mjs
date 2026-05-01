@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   output: "export",
-  basePath: "/kowairo-lp",
+  basePath: process.env.GITHUB_ACTIONS ? "/kowairo-lp" : "",
   images: { unoptimized: true },
 };
 
