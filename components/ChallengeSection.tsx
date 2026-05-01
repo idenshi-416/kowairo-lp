@@ -1,5 +1,4 @@
 "use client";
-import { ArrowRight } from "lucide-react";
 import { useInView } from "@/app/hooks/useInView";
 
 const challenges = [
