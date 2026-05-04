@@ -16,7 +16,7 @@ export default function HeroSection() {
   const style = (delay: number): React.CSSProperties => ({ transitionDelay: `${delay}ms` });
 
   return (
-    <section className="relative min-h-screen flex overflow-hidden">
+    <section className="relative min-h-screen flex flex-col lg:flex-row overflow-hidden">
       {/* Left panel */}
       <div className="relative z-10 flex flex-col justify-center w-full lg:w-[55%] px-8 md:px-16 lg:px-20 pt-24 pb-16 bg-cream">
         {/* Tag */}
