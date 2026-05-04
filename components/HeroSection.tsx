@@ -78,6 +78,18 @@ export default function HeroSection() {
         <p className={`text-xs text-body/40 mt-1 ${item()}`} style={style(1100)}>
           ※当社PoC実績（n=20人、3ヶ月）
         </p>
+
+        {/* Mobile mockup - スマホのみ表示 */}
+        <div className={`flex lg:hidden justify-center mt-8 ${item()}`} style={style(1200)}>
+          <Image
+            src="/images/app-mockup-transparent.png"
+            alt="kowairoアプリ画面"
+            width={240}
+            height={280}
+            className="object-contain drop-shadow-xl"
+            priority
+          />
+        </div>
       </div>
 
       {/* Right panel - scattered photo collage + centered mockup */}
