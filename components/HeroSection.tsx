@@ -79,14 +79,47 @@ export default function HeroSection() {
           ※当社PoC実績（n=20人、3ヶ月）
         </p>
 
-        {/* Mobile mockup - スマホのみ表示 */}
-        <div className={`flex lg:hidden justify-center mt-8 ${item()}`} style={style(1200)}>
+      </div>
+
+      {/* Mobile photo collage + mockup - スマホのみ表示 */}
+      <div className="lg:hidden w-full bg-navy relative overflow-hidden" style={{ height: 320 }}>
+        {[
+          { src: "/images/nurse-visit.jpg", style: { top: "-10%", left: "-5%",  width: 155, height: 107, rotate: "-7deg"  } },
+          { src: "/images/visit-1.jpg",     style: { top: "-8%",  right: "-4%", width: 145, height: 100, rotate: "9deg"   } },
+          { src: "/images/visit-6.jpg",     style: { top: "30%",  left: "-4%",  width: 148, height: 102, rotate: "6deg"   } },
+          { src: "/images/visit-5.jpg",     style: { top: "35%",  right: "-4%", width: 142, height: 98,  rotate: "-8deg"  } },
+          { src: "/images/visit-2.jpg",     style: { bottom: "-8%", left: "20%", width: 150, height: 103, rotate: "-5deg" } },
+          { src: "/images/visit-7.jpg",     style: { bottom: "-10%", left: "-4%", width: 148, height: 102, rotate: "7deg" } },
+          { src: "/images/visit-3.jpg",     style: { bottom: "-8%", right: "-4%", width: 145, height: 100, rotate: "-6deg"} },
+        ].map((photo, i) => (
+          <div
+            key={i}
+            className={`absolute rounded-xl overflow-hidden shadow-2xl transition-all duration-1000 ${mounted ? "opacity-100" : "opacity-0"}`}
+            style={{
+              top: photo.style.top,
+              left: photo.style.left,
+              right: photo.style.right,
+              bottom: photo.style.bottom,
+              width: photo.style.width,
+              height: photo.style.height,
+              transform: `rotate(${photo.style.rotate})`,
+              transitionDelay: `${300 + i * 80}ms`,
+            }}
+          >
+            <Image src={photo.src} alt="訪問看護の現場" fill className="object-cover" />
+          </div>
+        ))}
+        <div className="absolute inset-0 bg-navy/50 z-10" />
+        <div
+          className={`absolute inset-0 z-20 flex items-center justify-center transition-all duration-1000 ${mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}
+          style={{ transitionDelay: "800ms" }}
+        >
           <Image
             src="/images/app-mockup-transparent.png"
             alt="kowairoアプリ画面"
-            width={240}
-            height={280}
-            className="object-contain drop-shadow-xl"
+            width={220}
+            height={260}
+            className="object-contain drop-shadow-2xl"
             priority
           />
         </div>
