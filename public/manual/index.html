@@ -1,0 +1,1492 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KOWAIRO 操作マニュアル</title>
+  <style>
+    :root {
+      --color-primary:    #1A2B4A;
+      --color-accent:     #3D7EE8;
+      --color-blue-tile:  #EAF0FB;
+      --color-teal-tile:  #E4F5F4;
+      --color-pink-tile:  #FDE8EC;
+      --color-green-tile: #E4F5E8;
+      --color-yellow-tile:#FEF5E4;
+      --color-purple-tile:#F0EAFD;
+      --color-blue-icon:  #3D7EE8;
+      --color-teal-icon:  #2BBFB3;
+      --color-pink-icon:  #E8526A;
+      --color-green-icon: #3DB86B;
+      --color-yellow-icon:#E8A020;
+      --color-purple-icon:#8B52E8;
+      --text-main:        #1A2B4A;
+      --text-sub:         #5A6B85;
+      --border:           #E2E8F2;
+      --bg-page:          #F6F8FC;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Hiragino Kaku Gothic ProN', 'Noto Sans JP', sans-serif;
+      background: var(--bg-page);
+      color: var(--text-main);
+      font-size: 15px;
+      line-height: 1.7;
+    }
+
+    /* ── Cover ── */
+    .cover {
+      background: linear-gradient(150deg, #1A2B4A 0%, #1e3a6e 100%);
+      color: #fff;
+      padding: 64px 40px 56px;
+      text-align: center;
+    }
+    .cover .logo-img {
+      max-width: 220px;
+      width: 60%;
+      margin-bottom: 28px;
+      filter: brightness(0) invert(1);
+    }
+    .cover .subtitle {
+      font-size: 14px;
+      color: #A8BFDB;
+      letter-spacing: 1px;
+      margin-bottom: 32px;
+    }
+    .cover h1 {
+      font-size: 26px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    .cover .version { font-size: 12px; color: #A8BFDB; }
+
+    /* ── TOC ── */
+    .toc {
+      background: #fff;
+      margin: 32px auto;
+      max-width: 760px;
+      border-radius: 16px;
+      padding: 32px 36px;
+      box-shadow: 0 2px 12px rgba(26,43,74,.06);
+    }
+    .toc h2 {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--color-accent);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 16px;
+    }
+    .toc ol { padding-left: 20px; }
+    .toc li { margin-bottom: 6px; }
+    .toc a { color: var(--text-main); text-decoration: none; font-weight: 500; }
+    .toc a:hover { color: var(--color-accent); }
+
+    /* ── Section ── */
+    .section {
+      max-width: 760px;
+      margin: 0 auto 40px;
+      padding: 0 16px;
+    }
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 24px;
+      padding-bottom: 12px;
+      border-bottom: 2px solid var(--color-accent);
+    }
+    .section-num {
+      background: var(--color-accent);
+      color: #fff;
+      font-size: 13px;
+      font-weight: 800;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .section-header h2 { font-size: 20px; font-weight: 800; color: var(--color-primary); }
+
+    /* ── Card ── */
+    .card {
+      background: #fff;
+      border-radius: 14px;
+      padding: 24px 28px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 10px rgba(26,43,74,.05);
+      border: 1px solid var(--border);
+    }
+    .card h3 { font-size: 17px; font-weight: 700; margin-bottom: 12px; color: var(--color-primary); }
+    .card p { color: var(--text-sub); margin-bottom: 10px; }
+    .card p:last-child { margin-bottom: 0; }
+
+    /* ── Feature tiles ── */
+    .feature-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-bottom: 20px;
+    }
+    .feature-tile {
+      border-radius: 14px;
+      padding: 20px 16px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 10px;
+      border: 1px solid transparent;
+    }
+    .feature-tile .tile-icon {
+      font-size: 28px;
+      width: 52px;
+      height: 52px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .feature-tile .tile-name { font-size: 13px; font-weight: 700; color: var(--text-main); line-height: 1.4; }
+    .tile-blue   { background: var(--color-blue-tile);   border-color: #C8D8F5; }
+    .tile-teal   { background: var(--color-teal-tile);   border-color: #B8E8E5; }
+    .tile-pink   { background: var(--color-pink-tile);   border-color: #F5C8D0; }
+    .tile-green  { background: var(--color-green-tile);  border-color: #B8E5C8; }
+    .tile-yellow { background: var(--color-yellow-tile); border-color: #F5DFB8; }
+    .tile-purple { background: var(--color-purple-tile); border-color: #D8C8F5; }
+    .icon-blue   { color: var(--color-blue-icon);   background: #D4E5FF; }
+    .icon-teal   { color: var(--color-teal-icon);   background: #C8F0EE; }
+    .icon-pink   { color: var(--color-pink-icon);   background: #FDD0D8; }
+    .icon-green  { color: var(--color-green-icon);  background: #C8F0D8; }
+    .icon-yellow { color: var(--color-yellow-icon); background: #FDE8C0; }
+    .icon-purple { color: var(--color-purple-icon); background: #E0D0FF; }
+
+    /* ── Steps ── */
+    .steps { list-style: none; }
+    .steps li { display: flex; gap: 14px; margin-bottom: 16px; align-items: flex-start; }
+    .step-num {
+      background: var(--color-accent);
+      color: #fff;
+      font-size: 12px;
+      font-weight: 800;
+      min-width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 2px;
+    }
+    .step-body { flex: 1; }
+    .step-body strong { display: block; margin-bottom: 2px; }
+    .step-body span { color: var(--text-sub); font-size: 13.5px; }
+
+    /* ── Tips / Warn ── */
+    .tip {
+      background: #EAF0FB;
+      border-left: 4px solid var(--color-accent);
+      border-radius: 0 10px 10px 0;
+      padding: 14px 18px;
+      margin: 16px 0;
+      font-size: 13.5px;
+      color: #2A4A7A;
+    }
+    .tip strong { display: block; margin-bottom: 4px; font-size: 13px; color: var(--color-accent); }
+    .warn {
+      background: #FEF5E4;
+      border-left: 4px solid var(--color-yellow-icon);
+      border-radius: 0 10px 10px 0;
+      padding: 14px 18px;
+      margin: 16px 0;
+      font-size: 13.5px;
+      color: #6B4A10;
+    }
+    .warn strong { display: block; margin-bottom: 4px; font-size: 13px; color: var(--color-yellow-icon); }
+
+    /* ── Table ── */
+    table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 13.5px; }
+    th { background: var(--color-primary); color: #fff; padding: 10px 14px; text-align: left; font-weight: 600; }
+    td { padding: 10px 14px; border-bottom: 1px solid var(--border); color: var(--text-sub); }
+    tr:last-child td { border-bottom: none; }
+    tr:nth-child(even) td { background: var(--bg-page); }
+
+    /* ── Tag ── */
+    .tag {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 20px;
+      margin-right: 4px;
+    }
+    .tag-blue   { background: var(--color-blue-tile);   color: var(--color-blue-icon); }
+    .tag-pink   { background: var(--color-pink-tile);   color: var(--color-pink-icon); }
+    .tag-green  { background: var(--color-green-tile);  color: var(--color-green-icon); }
+    .tag-yellow { background: var(--color-yellow-tile); color: var(--color-yellow-icon); }
+    .tag-purple { background: var(--color-purple-tile); color: var(--color-purple-icon); }
+    .tag-teal   { background: var(--color-teal-tile);   color: var(--color-teal-icon); }
+
+    /* ── Divider ── */
+    .divider { height: 1px; background: var(--border); max-width: 760px; margin: 0 auto 40px; }
+
+    /* ── Screenshots ── */
+    .screenshot-wrap {
+      text-align: center;
+      margin: 20px 0;
+    }
+    .screenshot {
+      display: inline-block;
+      max-width: 240px;
+      width: 100%;
+      border-radius: 24px;
+      box-shadow: 0 6px 28px rgba(26,43,74,.18);
+      vertical-align: top;
+    }
+    .screenshot-caption {
+      display: block;
+      font-size: 12px;
+      color: var(--text-sub);
+      margin-top: 8px;
+      font-weight: 600;
+    }
+    .screenshot-row {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin: 20px 0;
+    }
+    .screenshot-row figure {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      max-width: 240px;
+    }
+    .screenshot-row figure img {
+      width: 100%;
+      border-radius: 24px;
+      box-shadow: 0 6px 28px rgba(26,43,74,.18);
+    }
+    .screenshot-row figure figcaption {
+      font-size: 12px;
+      color: var(--text-sub);
+      margin-top: 8px;
+      font-weight: 600;
+      text-align: center;
+    }
+
+    /* ── Video ── */
+    .video-wrap {
+      margin: 20px 0;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(26,43,74,.15);
+      background: #000;
+      text-align: center;
+    }
+    .video-wrap video,
+    .video-wrap iframe {
+      width: 100%;
+      aspect-ratio: 16/9;
+      display: block;
+      border: none;
+    }
+    .video-caption {
+      font-size: 12px;
+      color: var(--text-sub);
+      margin-top: 8px;
+      font-weight: 600;
+      text-align: center;
+    }
+
+    /* ── Link button ── */
+    .link-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--color-accent);
+      color: #fff !important;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 700;
+      padding: 12px 24px;
+      border-radius: 10px;
+      margin: 8px 8px 8px 0;
+      transition: opacity .15s;
+    }
+    .link-btn:hover { opacity: .85; }
+    .link-btn.secondary {
+      background: #fff;
+      color: var(--color-accent) !important;
+      border: 2px solid var(--color-accent);
+    }
+
+    /* ── Footer ── */
+    footer {
+      background: var(--color-primary);
+      color: #A8BFDB;
+      text-align: center;
+      padding: 28px 20px;
+      font-size: 12px;
+    }
+    footer strong { color: #fff; }
+
+    @media print {
+      * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+
+      body { background: #fff; font-size: 13px; }
+      .section { max-width: 100%; }
+      .toc { max-width: 100%; box-shadow: none; }
+
+      /* ── スクリーンショットは横幅を3列に合わせつつ高さ自然比を維持 ── */
+      .screenshot-row figure {
+        max-width: 190px;
+        flex: 0 0 auto;
+      }
+      .screenshot-row figure img {
+        width: 100% !important;
+        height: auto !important;
+      }
+      .screenshot-wrap img,
+      .screenshot {
+        max-width: 260px !important;
+        height: auto !important;
+      }
+
+      /* ── 図単位・スクリーンショット行は分断禁止（カード全体は許容） ── */
+      figure {
+        break-inside: avoid !important;
+        page-break-inside: avoid !important;
+      }
+      .screenshot-row {
+        break-inside: avoid !important;
+        page-break-inside: avoid !important;
+      }
+      .screenshot-wrap {
+        break-inside: avoid !important;
+        page-break-inside: avoid !important;
+      }
+
+      /* ── 見出し直後の改ページ禁止 ── */
+      .section-header {
+        break-after: avoid !important;
+        page-break-after: avoid !important;
+      }
+      .card h3 {
+        break-after: avoid !important;
+        page-break-after: avoid !important;
+      }
+
+      /* ── その他の要素 ── */
+      .card {
+        box-shadow: none;
+        border: 1px solid #ddd;
+      }
+      .steps li {
+        break-inside: avoid !important;
+        page-break-inside: avoid !important;
+      }
+      table {
+        break-inside: avoid !important;
+        page-break-inside: avoid !important;
+      }
+      tr {
+        break-inside: avoid !important;
+        page-break-inside: avoid !important;
+      }
+      .tip, .warn {
+        break-inside: avoid !important;
+        page-break-inside: avoid !important;
+      }
+      .feature-grid {
+        break-inside: avoid !important;
+        page-break-inside: avoid !important;
+      }
+
+      /* ── 動画はPDFでは非表示 ── */
+      .video-wrap { display: none !important; }
+      .video-caption { display: none !important; }
+
+      /* ── カバーと目次は独立ページ ── */
+      .cover { break-after: page !important; page-break-after: always !important; }
+      .toc   { break-after: page !important; page-break-after: always !important; }
+    }
+    @media (max-width: 600px) {
+      .feature-grid { grid-template-columns: 1fr; }
+      .cover .logo { font-size: 28px; }
+      .cover h1 { font-size: 20px; }
+      .screenshot-row { gap: 12px; }
+      .screenshot-row figure { max-width: 160px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══ COVER ══════════════════════════════════════════════════ -->
+<div class="cover">
+  <img class="logo-img" src="assets/log-kowairo-h.png" alt="KOWAIRO">
+  <div class="subtitle">訪問看護 AI 文書作成支援ツール</div>
+  <h1>操 作 マ ニ ュ ア ル</h1>
+  <div class="version">Ver. 1.0 ｜ 2026年4月</div>
+</div>
+
+<!-- ══ TOC ════════════════════════════════════════════════════ -->
+<div class="toc">
+  <h2>目 次</h2>
+  <ol>
+    <li><a href="#sec0">インストール・初期設定</a></li>
+    <li><a href="#sec1">KOWAIROとは</a></li>
+    <li><a href="#sec2">ログイン</a></li>
+    <li><a href="#sec3">ホーム画面の見かた</a></li>
+    <li><a href="#sec4">利用者一覧・検索</a></li>
+    <li><a href="#sec5">録音して記録を作成する（基本ワークフロー）</a></li>
+    <li><a href="#sec6">機能詳細：電話要約</a></li>
+    <li><a href="#sec7">機能詳細：月次レポート</a></li>
+    <li><a href="#sec8">機能詳細：利用者を選ばずに録音開始</a></li>
+    <li><a href="#sec9">機能詳細：カンファレンス</a></li>
+    <li><a href="#sec10">利用者登録・編集と OCR 読み込み</a></li>
+    <li><a href="#sec11">作成した記録の確認・編集</a></li>
+    <li><a href="#sec12">アカウント設定</a></li>
+    <li><a href="#sec13">よくある質問（FAQ）</a></li>
+  </ol>
+  <div class="tip" style="margin-top:16px;">
+    <strong>🔗 重要リンク</strong>
+    <a class="link-btn" href="https://testflight.apple.com/join/BG3GShFk" target="_blank">📱 アプリダウンロード（TestFlight）</a>
+    <a class="link-btn secondary" href="https://visiting-nursing-backend.vercel.app/login?returnUrl=%2Fusers" target="_blank">🖥️ 管理画面</a>
+  </div>
+</div>
+
+<!-- ══ SEC 0 ── インストール・初期設定 ══════════════════════════ -->
+<div class="section" id="sec0">
+  <div class="section-header">
+    <div class="section-num">1</div>
+    <h2>インストール・初期設定</h2>
+  </div>
+
+  <div class="card">
+    <h3>🎬 ダウンロード手順動画</h3>
+    <div class="video-wrap">
+      <video controls playsinline preload="metadata">
+        <source src="videos/kowairoダウンロード.MOV" type="video/quicktime">
+        <source src="videos/kowairoダウンロード.MOV" type="video/mp4">
+        お使いのブラウザは動画の再生に対応していません。
+      </video>
+    </div>
+    <p class="video-caption">▶ 動画でダウンロード〜初期設定の流れを確認できます</p>
+  </div>
+
+  <div class="card">
+    <h3>📱 アプリのダウンロード（TestFlight）</h3>
+    <p>KOWAIROは現在テスト配信中のため、Apple の <strong>TestFlight</strong> アプリ経由でインストールします。</p>
+
+    <ul class="steps">
+      <li>
+        <div class="step-num">1</div>
+        <div class="step-body">
+          <strong>招待リンクをブラウザで開く</strong>
+          <span>Safari・Chrome・Edge など、どのブラウザでも構いません。下記リンクをタップすると、STEP 1・STEP 2 が並んだページが表示されます。</span>
+          <div style="margin-top:10px;">
+            <a class="link-btn" href="https://testflight.apple.com/join/BG3GShFk" target="_blank">📱 KOWAIRO ダウンロードリンク</a>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="step-num">2</div>
+        <div class="step-body">
+          <strong>STEP 1（青いプロペラアイコン）をタップ → TestFlight をインストール</strong>
+          <span>App Store に移動します。TestFlight（無料・Apple 公式）をインストールし、起動して「コードを使う」の画面まで進めてください。</span>
+        </div>
+      </li>
+      <li>
+        <div class="step-num">3</div>
+        <div class="step-body">
+          <strong>ブラウザに戻り、STEP 2（ピンクのアイコン）をタップ → KOWAIRO をインストール</strong>
+          <span>TestFlight が開き、KOWAIRO のインストール画面が表示されます。「インストール」をタップして完了です。</span>
+        </div>
+      </li>
+    </ul>
+
+    <div class="warn">
+      <strong>⚠️ リンクをタップするとアプリが起動してしまう場合</strong>
+      すでに KOWAIRO がインストール済みの端末では、リンクをタップするとアプリが直接起動することがあります。再インストール・アップデートの際は、ブラウザのアドレスバーに URL を貼り付けて直接アクセスしてください。
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>🎙️ マイクのアクセスを許可する</h3>
+    <p>KOWAIRO は録音機能を使用するため、マイクへのアクセス許可が必要です。</p>
+    <ul class="steps">
+      <li>
+        <div class="step-num">1</div>
+        <div class="step-body">
+          <strong>初回起動時に許可ダイアログが表示される</strong>
+          <span>「"KOWAIRO" がマイクへのアクセスを求めています」というダイアログが表示されたら <strong>「OK」</strong> をタップしてください。</span>
+        </div>
+      </li>
+      <li>
+        <div class="step-num">2</div>
+        <div class="step-body">
+          <strong>許可しなかった場合・後から変更する場合</strong>
+          <span>「設定」アプリ → 「KOWAIRO」→「マイク」をオンにしてください。</span>
+        </div>
+      </li>
+    </ul>
+    <div class="tip">
+      <strong>💡 マイク許可がないと録音できません</strong>
+      録音ボタンをタップしても反応しない場合は、まずマイクのアクセス許可を確認してください。
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>🖥️ 管理画面（スタッフ登録・利用者管理）</h3>
+    <p>スタッフアカウントの発行や利用者情報の一括管理は、ブラウザから管理画面にアクセスして行います。</p>
+    <div style="margin-top:12px;">
+      <a class="link-btn" href="https://visiting-nursing-backend.vercel.app/login?returnUrl=%2Fusers" target="_blank">🖥️ 管理画面を開く</a>
+    </div>
+    <p style="margin-top:12px;">管理者から発行された ID・パスワードでログインしてください。</p>
+  </div>
+
+</div>
+
+<div class="divider"></div>
+
+<!-- ══ SEC 1 ── KOWAIROとは ══════════════════════════════════ -->
+<div class="section" id="sec1">
+  <div class="section-header">
+    <div class="section-num">2</div>
+    <h2>KOWAIRO とは</h2>
+  </div>
+
+  <div class="card">
+    <h3>訪問看護の「書く時間」を、「ケアの時間」へ</h3>
+    <p>KOWAIROは、訪問看護師が現場でしゃべるだけで看護記録・報告書・会議議事録などの文書を自動生成するAIツールです。</p>
+    <p>録音した音声をAIが解析し、利用者の病名・既往歴・介護度などの情報と組み合わせることで、精度の高い文書を短時間で作成します。</p>
+  </div>
+
+  <div class="card">
+    <h3>できること一覧</h3>
+    <table>
+      <thead><tr><th>機能</th><th>できること</th></tr></thead>
+      <tbody>
+        <tr><td><span class="tag tag-blue">録音→記録作成</span></td><td>訪問後に口頭で報告するだけでSOAP形式の看護記録を自動生成</td></tr>
+        <tr><td><span class="tag tag-purple">電話要約</span></td><td>電話の内容をしゃべるだけで議事録・申し送りメモに変換</td></tr>
+        <tr><td><span class="tag tag-pink">カンファレンス</span></td><td>担当者会議・退院調整会議などの録音から議事録を生成</td></tr>
+        <tr><td><span class="tag tag-teal">月次レポート</span></td><td>訪問看護報告書のサマリ部分を月次でまとめて生成</td></tr>
+        <tr><td><span class="tag tag-yellow">即時録音開始</span></td><td>利用者を選ばずにその場で録音開始し、後から紐づけ可能</td></tr>
+        <tr><td><span class="tag tag-green">OCR読み込み</span></td><td>訪問看護指示書・ケアプランをカメラで読み取り利用者情報を自動入力</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ══ SEC 2 ── ログイン ══════════════════════════════════════ -->
+<div class="section" id="sec2">
+  <div class="section-header">
+    <div class="section-num">3</div>
+    <h2>ログイン</h2>
+  </div>
+
+  <div class="card">
+    <h3>アプリを起動する</h3>
+    <p>KOWAIROを起動するとログイン画面が表示されます。ログイン方法は2種類あります。</p>
+
+    <div class="screenshot-row">
+      <figure>
+        <img src="screenshots/ログイン画面.png" alt="ログイン画面">
+        <figcaption>ログイン画面</figcaption>
+      </figure>
+    </div>
+
+    <table>
+      <thead><tr><th>方法</th><th>手順</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>メールアドレス/<br>ユーザー名でログイン</td>
+          <td>メールアドレスまたはユーザー名とパスワードを入力し「ログイン」をタップ</td>
+        </tr>
+        <tr>
+          <td>QRコードでログイン</td>
+          <td>管理者が発行したQRコードをカメラで読み取るだけでログイン完了。<br>スマートフォンの引き継ぎや新しいデバイスへの追加に便利</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="tip">
+      <strong>💡 QRコードはどこで発行する？</strong>
+      ログイン後、右上のアカウントアイコン →「QRコード生成」から自分のQRコードを表示できます（第12章参照）。
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ══ SEC 3 ── ホーム画面 ════════════════════════════════════ -->
+<div class="section" id="sec3">
+  <div class="section-header">
+    <div class="section-num">4</div>
+    <h2>ホーム画面の見かた</h2>
+  </div>
+
+  <div class="card">
+    <h3>ホーム画面の全体構成</h3>
+
+    <div class="screenshot-row">
+      <figure>
+        <img src="screenshots/ホーム画面（白）.png" alt="ホーム画面（ライトモード）">
+        <figcaption>ライトモード</figcaption>
+      </figure>
+      <figure>
+        <img src="screenshots/ホーム画面（ダーク）.png" alt="ホーム画面（ダークモード）">
+        <figcaption>ダークモード</figcaption>
+      </figure>
+    </div>
+
+    <p>ダークモードとライトモードは設定から切り替えられます（第12章参照）。</p>
+  </div>
+
+  <div class="card">
+    <h3>6つのショートカットタイル</h3>
+    <p>ホーム画面中央に、よく使う機能へのショートカットが並んでいます。</p>
+
+    <div class="feature-grid">
+      <div class="feature-tile tile-blue">
+        <div class="tile-icon icon-blue">📄</div>
+        <div class="tile-name">作成した記録<br>（全利用者）</div>
+      </div>
+      <div class="feature-tile tile-teal">
+        <div class="tile-icon icon-teal">📊</div>
+        <div class="tile-name">月次レポート</div>
+      </div>
+      <div class="feature-tile tile-pink">
+        <div class="tile-icon icon-pink">💬</div>
+        <div class="tile-name">カンファレンス</div>
+      </div>
+      <div class="feature-tile tile-green">
+        <div class="tile-icon icon-green">👤+</div>
+        <div class="tile-name">新規利用者登録</div>
+      </div>
+      <div class="feature-tile tile-yellow">
+        <div class="tile-icon icon-yellow">🎙️</div>
+        <div class="tile-name">利用者を選ばずに<br>録音開始</div>
+      </div>
+      <div class="feature-tile tile-purple">
+        <div class="tile-icon icon-purple">📞</div>
+        <div class="tile-name">電話要約</div>
+      </div>
+    </div>
+
+    <table>
+      <thead><tr><th>タイル</th><th>タップすると</th></tr></thead>
+      <tbody>
+        <tr><td>作成した記録（全利用者）</td><td>全利用者の記録一覧を表示。最新のものから並ぶ</td></tr>
+        <tr><td>月次レポート</td><td>利用者ごとの月次報告書作成画面へ</td></tr>
+        <tr><td>カンファレンス</td><td>会議録音→議事録生成の開始画面へ</td></tr>
+        <tr><td>新規利用者登録</td><td>利用者の新規登録フォームを開く</td></tr>
+        <tr><td>利用者を選ばずに録音開始</td><td>利用者を指定せずすぐに録音を開始</td></tr>
+        <tr><td>電話要約</td><td>電話後の口頭報告を議事録形式にまとめる</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card">
+    <h3>上部アイコンの役割</h3>
+    <table>
+      <thead><tr><th>アイコン</th><th>役割</th></tr></thead>
+      <tbody>
+        <tr><td>🔔（ベル）</td><td>お知らせ・通知の確認</td></tr>
+        <tr><td>👤（人型）</td><td>アカウント設定・テーマ変更・ログアウト</td></tr>
+        <tr><td>↑（ソート）</td><td>利用者一覧の並び順を変更</td></tr>
+        <tr><td>🔄（更新）</td><td>利用者一覧を最新の状態に更新</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ══ SEC 4 ── 利用者一覧・検索 ══════════════════════════════ -->
+<div class="section" id="sec4">
+  <div class="section-header">
+    <div class="section-num">5</div>
+    <h2>利用者一覧・検索</h2>
+  </div>
+
+  <div class="card">
+    <h3>タブで絞り込む</h3>
+    <p>一覧上部に「<strong>利用中</strong>」「<strong>退院済み</strong>」タブがあり、切り替えで表示する利用者を絞り込めます。</p>
+    <p>📌（ピンアイコン）をタップすると利用者を上部に固定でき、頻繁に訪問する方をすぐ見つけられます。</p>
+  </div>
+
+  <div class="card">
+    <h3>名前で検索する</h3>
+    <ul class="steps">
+      <li>
+        <div class="step-num">1</div>
+        <div class="step-body">
+          <strong>「利用者名で検索」バーをタップ</strong>
+          <span>ホーム画面上部の検索ボックスをタップします。</span>
+        </div>
+      </li>
+      <li>
+        <div class="step-num">2</div>
+        <div class="step-body">
+          <strong>名前を入力（漢字・かな両対応）</strong>
+          <span>途中の文字だけでも検索できます。</span>
+        </div>
+      </li>
+      <li>
+        <div class="step-num">3</div>
+        <div class="step-body">
+          <strong>一覧から利用者を選択</strong>
+          <span>行右端の「›」または行全体をタップして詳細画面へ進みます。</span>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ══ SEC 5 ── 録音→記録作成（基本ワークフロー） ════════════ -->
+<div class="section" id="sec5">
+  <div class="section-header">
+    <div class="section-num">6</div>
+    <h2>録音して記録を作成する（基本ワークフロー）</h2>
+  </div>
+
+  <div class="card">
+    <h3>訪問後の流れ</h3>
+    <ul class="steps">
+      <li>
+        <div class="step-num">1</div>
+        <div class="step-body">
+          <strong>ホーム画面で利用者を選択</strong>
+          <span>一覧から担当の利用者の行をタップします。</span>
+        </div>
+      </li>
+      <li>
+        <div class="step-num">2</div>
+        <div class="step-body">
+          <strong>職種タブを選択</strong>
+          <span>記録画面上部の「看護師」「リハ」「医師」タブから、自分の職種を選択します。</span>
+        </div>
+      </li>
+      <li>
+        <div class="step-num">3</div>
+        <div class="step-body">
+          <strong>「開始」ボタンをタップして録音開始</strong>
+          <span>訪問内容を口頭で報告します。「バイタル測定しました。体温は…」のように自然に話してください。</span>
+        </div>
+      </li>
+      <li>
+        <div class="step-num">4</div>
+        <div class="step-body">
+          <strong>録音中：バイタルサインを入力（任意）</strong>
+          <span>録音中の画面でバイタルサイン（体温・SpO2・脈拍・血圧）を数値入力できます。メモ欄に特記事項を書き込むことも可能です。これらはSOAP生成時にAIが参照します。</span>
+        </div>
+      </li>
+      <li>
+        <div class="step-num">5</div>
+        <div class="step-body">
+          <strong>「停止」ボタンをタップ</strong>
+          <span>録音が保存され、AIがバックグラウンドでSOAP記録を生成します。</span>
+        </div>
+      </li>
+      <li>
+        <div class="step-num">6</div>
+        <div class="step-body">
+          <strong>生成された記録を確認・修正して保存</strong>
+          <span>「作成した記録」からAI生成結果を確認し、必要に応じて編集してください。</span>
+        </div>
+      </li>
+    </ul>
+
+    <div class="screenshot-row">
+      <figure>
+        <img src="screenshots/録音開始画面.png" alt="録音開始画面">
+        <figcaption>録音開始画面</figcaption>
+      </figure>
+      <figure>
+        <img src="screenshots/録音中画面.png" alt="録音中画面">
+        <figcaption>録音中（バイタル入力可能）</figcaption>
+      </figure>
+      <figure>
+        <img src="screenshots/録音終了ボタン押下後.png" alt="録音保存後">
+        <figcaption>録音保存完了</figcaption>
+      </figure>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>録音画面の各項目</h3>
+    <table>
+      <thead><tr><th>項目</th><th>説明</th></tr></thead>
+      <tbody>
+        <tr><td>職種タブ（看護師 / リハ / 医師）</td><td>記録を作成する職種を選択。職種に合わせたSOAP形式で出力される</td></tr>
+        <tr><td>録音テキスト（プレビュー）</td><td>録音中の音声がリアルタイムでテキスト化されて表示される</td></tr>
+        <tr><td>バイタルサイン</td><td>体温・SpO2・脈拍・血圧を録音中に入力可能。AI生成に反映される</td></tr>
+        <tr><td>メモ</td><td>確実に残したい事項を手入力。SOAP生成時に参照される</td></tr>
+        <tr><td>一時停止ボタン（オレンジ）</td><td>録音を一時停止。再タップで再開</td></tr>
+        <tr><td>停止ボタン（赤）</td><td>録音を終了し、AI処理を開始</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card">
+    <h3>SOAP形式について</h3>
+    <p>KOWAIROの記録はSOAP形式で生成されます。</p>
+    <table>
+      <thead><tr><th>項目</th><th>内容</th></tr></thead>
+      <tbody>
+        <tr><td><strong>S</strong>（主観的情報）</td><td>利用者の訴え・自覚症状</td></tr>
+        <tr><td><strong>O</strong>（客観的情報）</td><td>バイタルサイン・観察所見</td></tr>
+        <tr><td><strong>A/P</strong>（評価・計画）</td><td>アセスメントと今後のケア計画</td></tr>
+        <tr><td>今日のポイント</td><td>今回の訪問で特に重要だった事項</td></tr>
+        <tr><td>次回への引き継ぎ</td><td>次回訪問者へ伝えるべき申し送り事項</td></tr>
+      </tbody>
+    </table>
+
+    <div class="tip">
+      <strong>💡 「SOAPを一括コピー」ボタン</strong>
+      記録画面下部の「SOAPを一括コピー」をタップすると、生成されたSOAP全文をクリップボードにコピーできます。他のシステムへの転記に便利です。
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>利用者情報が多いほどAI精度が上がります</h3>
+    <p>あらかじめ利用者の主病名・既往歴・介護度・訪問看護指示書の内容を登録しておくと、AIがそれを踏まえた記録文を生成します（詳細は第10章）。</p>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ══ SEC 6 ── 電話要約 ══════════════════════════════════════ -->
+<div class="section" id="sec6">
+  <div class="section-header">
+    <div class="section-num">7</div>
+    <h2>機能詳細：電話要約</h2>
+  </div>
+
+  <div class="card">
+    <h3>こんなときに使う</h3>
+    <p>医師・ケアマネジャー・他事業所などと電話で連絡を取った後、内容を記録に残したいときに使います。電話を切った直後に、記憶が新鮮なうちに話しかけるだけで議事録・申し送りメモが完成します。</p>
+  </div>
+
+  <div class="card">
+    <h3>使いかた</h3>
+
+    <div class="screenshot-row">
+      <figure>
+        <img src="screenshots/電話要約画面.png" alt="電話要約画面">
+        <figcaption>電話要約画面</figcaption>
+      </figure>
+    </div>
+
+    <ul class="steps">
+      <li>
+        <div class="step-num">1</div>
+        <div class="step-body">
+          <strong>ホーム画面の「電話要約」タイル（紫）をタップ</strong>
+        </div>
+      </li>
+      <li>
+        <div class="step-num">2</div>
+        <div class="step-body">
+          <strong>関連する利用者を選択（任意）</strong>
+          <span>特定の利用者に関する電話ならその利用者を選ぶと、記録が利用者ページに紐づきます。事業所内の連絡など利用者に紐づかない電話は選択不要です。</span>
+        </div>
+      </li>
+      <li>
+        <div class="step-num">3</div>
+        <div class="step-body">
+          <strong>メモ欄に確実に残したい事項を入力（任意）</strong>
+          <span>例：「発熱38.5度／次回訪問日を火曜に変更」など、キーワードだけでも入力しておくとAIが正確に拾います。</span>
+        </div>
+      </li>
+      <li>
+        <div class="step-num">4</div>
+        <div class="step-body">
+          <strong>「開始」をタップし、電話の内容をまとめて話す</strong>
+          <span>「さっき○○病院の△△先生から電話があって、□□さんの薬が変更になるとのことで…」のように自然に話してください。</span>
+        </div>
+      </li>
+      <li>
+        <div class="step-num">5</div>
+        <div class="step-body">
+          <strong>「停止」→ AIが要約を生成 → 確認・編集して保存</strong>
+          <span>発信者・要件・決定事項・次のアクションが整理された形で出力されます。</span>
+        </div>
+      </li>
+    </ul>
+
+    <div class="tip">
+      <strong>💡 話しかたのコツ</strong>
+      「誰から」「何について」「何が決まったか」「次に何をするか」を意識して話すと、より整理された要約が生成されます。
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ══ SEC 7 ── 月次レポート ══════════════════════════════════ -->
+<div class="section" id="sec7">
+  <div class="section-header">
+    <div class="section-num">8</div>
+    <h2>機能詳細：月次レポート</h2>
+  </div>
+
+  <div class="card">
+    <h3>こんなときに使う</h3>
+    <p>月末に提出する訪問看護報告書のサマリ（病状の経過・看護の内容など）をAIが自動生成します。その月に作成した訪問記録を集約し、変化点や特記事項をまとめます。</p>
+  </div>
+
+  <div class="card">
+    <h3>使いかた</h3>
+
+    <div class="screenshot-row">
+      <figure>
+        <img src="screenshots/月次レポート（訪問看護報告書下書き作成画面）.png" alt="月次レポート一覧">
+        <figcaption>月次レポート作成状況一覧</figcaption>
+      </figure>
+      <figure>
+        <img src="screenshots/訪問看護報告書年月選択画面.png" alt="年月選択">
+        <figcaption>対象年月を選択して生成</figcaption>
+      </figure>
+      <figure>
+        <img src="screenshots/訪問看護報告書サマリ部分作成後.png" alt="サマリ作成後">
+        <figcaption>サマリ生成後の画面</figcaption>
+      </figure>
+    </div>
+
+    <ul class="steps">
+      <li>
+        <div class="step-num">1</div>
+        <div class="step-body">
+          <strong>「月次レポート」タイル（水色）をタップ</strong>
+          <span>全利用者の当月レポート作成状況が一覧表示されます。「今月未作成」のバッジがついている利用者が対象です。</span>
+        </div>
+      </li>
+      <li>
+        <div class="step-num">2</div>
+        <div class="step-body">
+          <strong>対象の利用者の「作成する」をタップ</strong>
+        </div>
+      </li>
+      <li>
+        <div class="step-num">3</div>
+        <div class="step-body">
+          <strong>対象年月を確認し「生成」をタップ</strong>
+          <span>その月のSOAP記録を集約し、AIがサマリを作成します。同一期間のレポートが既にある場合は上書きされます。</span>
+        </div>
+      </li>
+      <li>
+        <div class="step-num">4</div>
+        <div class="step-body">
+          <strong>「病状の経過」「看護の内容」を確認・追記して完成</strong>
+          <span>「編集」「コピー」ボタンで各セクションを個別に修正・転用できます。</span>
+        </div>
+      </li>
+    </ul>
+
+    <div class="warn">
+      <strong>⚠️ ご注意</strong>
+      月次レポートは訪問記録の蓄積が多いほど精度が上がります。月中にこまめに記録を作成するとサマリの品質が向上します。
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ══ SEC 8 ── 利用者を選ばずに録音開始 ════════════════════ -->
+<div class="section" id="sec8">
+  <div class="section-header">
+    <div class="section-num">9</div>
+    <h2>機能詳細：利用者を選ばずに録音開始</h2>
+  </div>
+
+  <div class="card">
+    <h3>こんなときに使う</h3>
+    <table>
+      <thead><tr><th>シーン</th><th>理由</th></tr></thead>
+      <tbody>
+        <tr><td>初めて訪問する新規利用者</td><td>まだ利用者登録が済んでいない</td></tr>
+        <tr><td>移動中・記録直後でとにかく急いでいる</td><td>利用者を選ぶ時間も惜しい</td></tr>
+        <tr><td>複数の訪問が立て続けに入っている</td><td>後でまとめて紐づけたい</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card">
+    <h3>使いかた</h3>
+
+    <div class="screenshot-row">
+      <figure>
+        <img src="screenshots/患者未選択で録音.png" alt="利用者未選択で録音開始の確認ダイアログ">
+        <figcaption>開始前の確認ダイアログ</figcaption>
+      </figure>
+      <figure>
+        <img src="screenshots/患者選択画面.png" alt="利用者選択画面">
+        <figcaption>後から利用者を紐づける画面</figcaption>
+      </figure>
+    </div>
+
+    <ul class="steps">
+      <li>
+        <div class="step-num">1</div>
+        <div class="step-body">
+          <strong>「利用者を選ばずに録音開始」タイル（黄色）をタップ</strong>
+          <span>確認ダイアログが表示されます。</span>
+        </div>
+      </li>
+      <li>
+        <div class="step-num">2</div>
+        <div class="step-body">
+          <strong>「録音を開始」をタップ</strong>
+          <span>利用者未選択の状態でカルテ画面が開き、すぐに録音を始められます。画面上部に「利用者未選択で記録中」の警告バナーが表示されます。</span>
+        </div>
+      </li>
+      <li>
+        <div class="step-num">3</div>
+        <div class="step-body">
+          <strong>内容を話す → 停止</strong>
+        </div>
+      </li>
+      <li>
+        <div class="step-num">4</div>
+        <div class="step-body">
+          <strong>録音中または録音後に利用者を紐づける</strong>
+          <span>「利用者未選択で記録中」バナーをタップすると利用者選択画面が開きます。あとで「作成した記録」一覧の未紐づけ記録からも紐づけ可能です。</span>
+        </div>
+      </li>
+    </ul>
+
+    <div class="tip">
+      <strong>💡 未紐づけ記録の確認</strong>
+      「作成した記録（全利用者）」一覧で「（利用者未紐付）」と表示されている記録が紐づけ待ちの状態です。
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ══ SEC 9 ── カンファレンス ════════════════════════════════ -->
+<div class="section" id="sec9">
+  <div class="section-header">
+    <div class="section-num">10</div>
+    <h2>機能詳細：カンファレンス</h2>
+  </div>
+
+  <div class="card">
+    <h3>対応する会議の種類</h3>
+    <table>
+      <thead><tr><th>会議の種類</th><th>利用者紐づけ</th></tr></thead>
+      <tbody>
+        <tr><td>担当者会議（サービス担当者会議）</td><td>✅ 対象の利用者に紐づけ</td></tr>
+        <tr><td>退院調整会議・病院カンファレンス</td><td>✅ 対象の利用者に紐づけ</td></tr>
+        <tr><td>事業所内会議・研修</td><td>— 紐づけなし</td></tr>
+        <tr><td>法人全体の会議・勉強会</td><td>— 紐づけなし</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card">
+    <h3>使いかた</h3>
+
+    <div class="screenshot-row">
+      <figure>
+        <img src="screenshots/カンファレンス議事録選択画面.png" alt="カンファレンス作成方法の選択">
+        <figcaption>利用者紐づけの選択</figcaption>
+      </figure>
+      <figure>
+        <img src="screenshots/カンファレンス議事録録音開始画面.png" alt="カンファレンス録音開始画面">
+        <figcaption>録音開始・基本情報入力画面</figcaption>
+      </figure>
+    </div>
+
+    <ul class="steps">
+      <li>
+        <div class="step-num">1</div>
+        <div class="step-body">
+          <strong>「カンファレンス」タイル（ピンク）をタップ</strong>
+          <span>「カンファレンスをどう作成しますか？」ダイアログが表示されます。</span>
+        </div>
+      </li>
+      <li>
+        <div class="step-num">2</div>
+        <div class="step-body">
+          <strong>利用者を選んで作成 または 利用者を選ばずに作成 を選択</strong>
+          <span>利用者に紐づく会議なら「利用者を選んで作成する」をタップし対象の利用者を選択。社内研修など紐づかない会議は「利用者を選ばずに作成する」を選択。</span>
+        </div>
+      </li>
+      <li>
+        <div class="step-num">3</div>
+        <div class="step-body">
+          <strong>録音開始（または手入力のみでスキップ可能）</strong>
+          <span>会議全体を録音するか、会議後にまとめて口頭報告するかを選べます。手入力のみの場合は録音をスキップして直接フォームに記入できます。</span>
+        </div>
+      </li>
+      <li>
+        <div class="step-num">4</div>
+        <div class="step-body">
+          <strong>基本情報を入力</strong>
+          <span>会議種別（必須）・開催日時・議題・目的を入力します。AIが録音内容とあわせて議事録を生成します。</span>
+        </div>
+      </li>
+      <li>
+        <div class="step-num">5</div>
+        <div class="step-body">
+          <strong>「保存」をタップ → 議事録を確認・編集</strong>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ══ SEC 10 ── 利用者登録・編集 & OCR ══════════════════════ -->
+<div class="section" id="sec10">
+  <div class="section-header">
+    <div class="section-num">11</div>
+    <h2>利用者登録・編集と OCR 読み込み</h2>
+  </div>
+
+  <div class="card">
+    <h3>なぜ利用者情報の登録が重要か</h3>
+    <p>KOWAIROのAIは、利用者の医療・ケア情報を参照して記録文書を生成します。情報が充実しているほど、より適切な文書が生成されます。</p>
+    <table>
+      <thead><tr><th>登録情報</th><th>AIへの影響</th></tr></thead>
+      <tbody>
+        <tr><td>主疾患</td><td>病態に合った観察項目・アセスメント用語を使用</td></tr>
+        <tr><td>既往歴</td><td>リスクを考慮した記載を追加</td></tr>
+        <tr><td>アレルギー</td><td>薬剤・処置に関する記載で注意喚起</td></tr>
+        <tr><td>介護度</td><td>ADLレベルに応じた文体・内容に調整</td></tr>
+        <tr><td>訪問看護指示書の内容</td><td>指示に沿った観察・処置の記載を強化</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card">
+    <h3>新規利用者を登録する</h3>
+
+    <div class="screenshot-row">
+      <figure>
+        <img src="screenshots/新規患者登録.png" alt="新規利用者登録（基本情報）">
+        <figcaption>基本情報の入力</figcaption>
+      </figure>
+      <figure>
+        <img src="screenshots/新規患者登録　基本情報登録（AIに反映）.png" alt="医療情報の入力">
+        <figcaption>医療情報・OCR取り込み</figcaption>
+      </figure>
+      <figure>
+        <img src="screenshots/新規患者登録　OCRで指示書取り込み（AIに反映）.png" alt="OCR訪問看護指示書入力">
+        <figcaption>訪問看護指示書の入力欄</figcaption>
+      </figure>
+    </div>
+
+    <ul class="steps">
+      <li>
+        <div class="step-num">1</div>
+        <div class="step-body">
+          <strong>「新規利用者登録」タイル（緑）をタップ</strong>
+        </div>
+      </li>
+      <li>
+        <div class="step-num">2</div>
+        <div class="step-body">
+          <strong>基本情報を入力</strong>
+          <span>氏名（必須）・ふりがな・生年月日（必須）・性別・電話番号・住所を入力します。</span>
+        </div>
+      </li>
+      <li>
+        <div class="step-num">3</div>
+        <div class="step-body">
+          <strong>医療情報を入力（任意・AIに反映）</strong>
+          <span>主疾患・既往歴・アレルギー・介護度を入力します。これらはSOAP・アセスメント生成時にAIへ渡されます。</span>
+        </div>
+      </li>
+      <li>
+        <div class="step-num">4</div>
+        <div class="step-body">
+          <strong>指示書をOCRで取り込む、または手入力（任意）</strong>
+          <span>訪問看護指示書の内容を登録しておくと、事前計画に対するSOAP生成時に活用されます。</span>
+        </div>
+      </li>
+      <li>
+        <div class="step-num">5</div>
+        <div class="step-body">
+          <strong>「登録する」をタップして完了</strong>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>📷 OCRで書類を読み取る（訪問看護指示書・ケアプラン等）</h3>
+    <p>紙の書類をカメラで撮影するだけで、記載内容をKOWAIROに自動入力できます。</p>
+
+    <ul class="steps">
+      <li>
+        <div class="step-num">1</div>
+        <div class="step-body">
+          <strong>医療情報欄の「指示書を画像から取込（任意）」をタップ</strong>
+        </div>
+      </li>
+      <li>
+        <div class="step-num">2</div>
+        <div class="step-body">
+          <strong>「画像を選択」をタップ</strong>
+          <span>カメラで撮影するか、フォトライブラリから選択します。</span>
+        </div>
+      </li>
+      <li>
+        <div class="step-num">3</div>
+        <div class="step-body">
+          <strong>AIが書類を解析し、「訪問看護指示書」欄に自動入力</strong>
+          <span>主病名・指示内容・留意事項などが読み取られます。</span>
+        </div>
+      </li>
+      <li>
+        <div class="step-num">4</div>
+        <div class="step-body">
+          <strong>読み取り内容を確認・修正して「登録する」</strong>
+          <span>誤認識がある場合は手動で修正してください。</span>
+        </div>
+      </li>
+    </ul>
+
+    <div class="tip">
+      <strong>💡 OCRの読み取り精度を上げるコツ</strong>
+      書類は平らな場所に置き、文字全体が画角に収まるように撮影してください。影や折れ目があると認識精度が下がることがあります。
+    </div>
+
+    <div class="warn">
+      <strong>⚠️ OCR後は必ず内容を確認してください</strong>
+      特に薬剤名・用量・禁忌事項などは必ず目視確認をお願いします。
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>対応書類の種類</h3>
+    <table>
+      <thead><tr><th>書類</th><th>主に読み取られる情報</th></tr></thead>
+      <tbody>
+        <tr><td>訪問看護指示書</td><td>主病名・病状・指示内容・留意事項・薬剤情報</td></tr>
+        <tr><td>訪問看護計画書</td><td>看護目標（長期・短期）・問題点・具体的ケア内容・評価予定日</td></tr>
+        <tr><td>居宅サービス計画書（ケアプラン）</td><td>介護度・長期目標・短期目標・サービス内容</td></tr>
+        <tr><td>診療情報提供書（紹介状）</td><td>既往歴・現病歴・使用薬剤・禁忌事項</td></tr>
+        <tr><td>退院サマリー</td><td>入院経過・退院時状態・今後の方針</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ══ SEC 11 ── 作成した記録 ════════════════════════════════ -->
+<div class="section" id="sec11">
+  <div class="section-header">
+    <div class="section-num">12</div>
+    <h2>作成した記録の確認・編集</h2>
+  </div>
+
+  <div class="card">
+    <h3>記録の一覧を見る</h3>
+
+    <div class="screenshot-row">
+      <figure>
+        <img src="screenshots/作成した記録（患者横断）.png" alt="作成した記録一覧">
+        <figcaption>作成した記録（全利用者）</figcaption>
+      </figure>
+    </div>
+
+    <p>ホーム画面の「作成した記録（全利用者）」タイルをタップすると、事業所全体の記録が新しい順に並びます。</p>
+
+    <table>
+      <thead><tr><th>フィルタ</th><th>表示される記録</th></tr></thead>
+      <tbody>
+        <tr><td>すべて</td><td>訪問記録・電話要約・カンファレンス記録の全件</td></tr>
+        <tr><td>訪問</td><td>訪問時のSOAP記録のみ</td></tr>
+        <tr><td>電話</td><td>電話要約記録のみ</td></tr>
+        <tr><td>カンファ</td><td>カンファレンス議事録のみ</td></tr>
+      </tbody>
+    </table>
+    <p>「利用者」プルダウンで特定の利用者に絞り込むこともできます。「ゴミ箱」タブから削除した記録を復元できます。</p>
+  </div>
+
+  <div class="card">
+    <h3>記録を編集・修正する</h3>
+    <ul class="steps">
+      <li>
+        <div class="step-num">1</div>
+        <div class="step-body">
+          <strong>一覧から編集したい記録をタップ</strong>
+        </div>
+      </li>
+      <li>
+        <div class="step-num">2</div>
+        <div class="step-body">
+          <strong>各項目の編集アイコン（✏️）をタップ</strong>
+          <span>S・O・A/P・今日のポイント・次回への引き継ぎをそれぞれ個別に編集できます。</span>
+        </div>
+      </li>
+      <li>
+        <div class="step-num">3</div>
+        <div class="step-body">
+          <strong>修正して保存</strong>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ══ SEC 12 ── アカウント設定 ══════════════════════════════ -->
+<div class="section" id="sec12">
+  <div class="section-header">
+    <div class="section-num">13</div>
+    <h2>アカウント設定</h2>
+  </div>
+
+  <div class="card">
+    <h3>設定メニューを開く</h3>
+    <p>ホーム画面右上の👤アイコンをタップすると設定メニューが表示されます。</p>
+
+    <div class="screenshot-row">
+      <figure>
+        <img src="screenshots/設定ボタン.png" alt="設定メニュー（ライト）">
+        <figcaption>設定メニュー（ライト）</figcaption>
+      </figure>
+      <figure>
+        <img src="screenshots/ダークモード切替.png" alt="設定メニュー（ダーク）">
+        <figcaption>設定メニュー（ダーク）</figcaption>
+      </figure>
+    </div>
+
+    <table>
+      <thead><tr><th>メニュー項目</th><th>内容</th></tr></thead>
+      <tbody>
+        <tr><td>QRコード生成</td><td>自分のアカウントへのログイン用QRコードを表示。別のデバイスへの引き継ぎに使用</td></tr>
+        <tr><td>パスワード変更</td><td>現在のパスワードを変更する</td></tr>
+        <tr><td>フィードバック・不具合報告</td><td>アプリへの意見や不具合を開発チームに送信</td></tr>
+        <tr><td>ログアウト</td><td>アカウントからログアウトする</td></tr>
+        <tr><td>テーマ（ライト / ダーク / システム）</td><td>画面の表示テーマを切り替える</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card">
+    <h3>パスワードを変更する</h3>
+
+    <div class="screenshot-row">
+      <figure>
+        <img src="screenshots/パスワード変更.png" alt="パスワード変更画面">
+        <figcaption>パスワード変更画面</figcaption>
+      </figure>
+    </div>
+
+    <ul class="steps">
+      <li>
+        <div class="step-num">1</div>
+        <div class="step-body">
+          <strong>設定メニューの「パスワード変更」をタップ</strong>
+        </div>
+      </li>
+      <li>
+        <div class="step-num">2</div>
+        <div class="step-body">
+          <strong>現在のパスワードを入力</strong>
+        </div>
+      </li>
+      <li>
+        <div class="step-num">3</div>
+        <div class="step-body">
+          <strong>新しいパスワードを入力（6文字以上）</strong>
+          <span>「覚えやすいパスワードを生成」をタップするとAIが安全なパスワードを提案します。生成した場合はメモを残してください。</span>
+        </div>
+      </li>
+      <li>
+        <div class="step-num">4</div>
+        <div class="step-body">
+          <strong>確認用に同じパスワードを再入力し「パスワードを変更」をタップ</strong>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>テーマ（ライト / ダーク）の切り替え</h3>
+    <p>設定メニュー下部の「テーマ」で表示モードを切り替えられます。</p>
+    <table>
+      <thead><tr><th>設定</th><th>表示</th></tr></thead>
+      <tbody>
+        <tr><td>ライト</td><td>白背景・通常表示</td></tr>
+        <tr><td>ダーク</td><td>黒背景・夜間や暗所での使用に最適</td></tr>
+        <tr><td>システム</td><td>スマートフォンのシステム設定（時間帯による自動切替など）に従う</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ══ SEC 13 ── よくある質問 ════════════════════════════════ -->
+<div class="section" id="sec13">
+  <div class="section-header">
+    <div class="section-num">14</div>
+    <h2>よくある質問</h2>
+  </div>
+
+  <div class="card">
+    <h3>Q. 録音中に間違えて話してしまいました</h3>
+    <p>録音停止後に生成された文書を手動で編集できます。AIは文脈を読んで正しい内容を生成しようとしますが、誤りがあれば各項目の✏️アイコンから直接テキストを修正して保存してください。</p>
+  </div>
+
+  <div class="card">
+    <h3>Q. 音声がうまく認識されません</h3>
+    <p>マイクから口を離しすぎないようにしてください。風の強い屋外や騒音の多い場所では認識精度が下がることがあります。はっきりとした速さで話すと精度が向上します。スマートフォンのマイク許可設定もご確認ください。</p>
+  </div>
+
+  <div class="card">
+    <h3>Q. 処理にどのくらい時間がかかりますか？</h3>
+    <p>録音停止後、AIはバックグラウンドで処理を開始します。数秒〜数分かかる場合があります。処理中は画面上部に「処理中 (N)」のバッジが表示されます。処理完了後、「作成した記録」から確認できます。</p>
+  </div>
+
+  <div class="card">
+    <h3>Q. OCRで読み取れない書類があります</h3>
+    <p>手書き文字が多い書類や、著しく薄い印字・折れ目の多い書類は認識精度が下がることがあります。該当箇所は「訪問看護指示書」欄に手動でテキストを貼り付け・入力してください。</p>
+  </div>
+
+  <div class="card">
+    <h3>Q. 利用者を選ばずに録音した記録を後から紐づけるには？</h3>
+    <p>「作成した記録（全利用者）」一覧を開き、「（利用者未紐付）」と表示されている記録をタップします。詳細画面の「利用者未選択で記録中」バナーをタップして対象の利用者を選択してください。</p>
+  </div>
+
+  <div class="card">
+    <h3>Q. 月次レポートは何回でも生成し直せますか？</h3>
+    <p>同一月・同一利用者のレポートは再生成時に上書きされます。「新規月次レポート作成」の画面で「指定期間内のSOAP記録を集約し、AIで本文を生成します。同一期間のレポートが既にある場合は上書きされます。」と表示されます。</p>
+  </div>
+
+  <div class="card">
+    <h3>Q. 患者の個人情報の取り扱いは安全ですか？</h3>
+    <p>KOWAIROは医療情報の取り扱いに関するセキュリティ基準に準拠した設計をしています。データは暗号化されて保存・通信されます。詳細は管理者またはサポート窓口にお問い合わせください。</p>
+  </div>
+</div>
+
+<!-- ══ FOOTER ══════════════════════════════════════════════════ -->
+<footer>
+  <div style="margin-bottom:6px;"><strong>KOWAIRO</strong> — 訪問看護 AI 文書作成支援ツール</div>
+  <div>このマニュアルに関するご質問は、管理者またはサポート窓口までお問い合わせください。</div>
+  <div style="margin-top:8px;color:#6A8AAA;font-size:11px;">© 2026 Idenshi Inc. All rights reserved.</div>
+</footer>
+
+</body>
+</html>
